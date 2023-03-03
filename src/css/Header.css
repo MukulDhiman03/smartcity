@@ -1,0 +1,31 @@
+nav {
+    display: flex;
+    /* border: 2px solid black; */
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+ul {
+    margin-right: 4vh;
+    list-style: none;
+    display: flex;
+    /* border: 2px solid red; */
+}
+
+ul li {
+    margin-left: 2vh;
+    font-size: 4vh;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}

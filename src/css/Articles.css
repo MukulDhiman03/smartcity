@@ -1,0 +1,15 @@
+.container {
+    background-color: black;
+    margin-top: 2vh;
+    color: white;
+}
+
+.article_heading {
+    text-align: center;
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
