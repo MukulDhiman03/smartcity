@@ -4,17 +4,30 @@ import "../css/Header.css"
 
 const Header = () => {
     return (
-        <nav>
-            <div className='logo'>
-                LOGO
+        <div className='container mt-5'>
+            <div className='row'>
+                <div class="col-4 logo">
+                    <h1>SMARTCITY</h1>
+                </div>
+                <div class="col-6">
+                    <ul>
+                        <li>
+                            <NavLink className="link" to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="link" to="/about">About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="link" to="/profile">Profile</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="link" to="/login">LogIn</NavLink>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <ul>
-                <li><NavLink className="nav-link" to="/login">LogIn</NavLink></li>
-                <li><NavLink className="nav-link" to="/">Home</NavLink></li>
-                <li><NavLink className="nav-link" to="/about">About</NavLink></li>
-                <li><NavLink className="nav-link" to="/profile">Profile</NavLink></li>
-            </ul>
-        </nav>
+        </div>
+
     )
 }
 

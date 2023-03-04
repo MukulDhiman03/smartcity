@@ -1,15 +1,9 @@
-.container {
-    background-color: black;
-    margin-top: 2vh;
-    color: white;
-}
-
 .article_heading {
     text-align: center;
+    font-size: 6.5vh;
 }
-
-.articles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.articles{ 
+   margin-top: 3vh;
+    padding: 8px;
+    border-left: 2px solid white;
 }

@@ -1,20 +1,18 @@
 import React from 'react'
 import "../css/Home.css"
 import Articles from './Articles'
-// import gif from "../img/city.mp4"
+import { NavLink } from 'react-router-dom'
 
 const Home = () => {
   return (
     <>
-      <div className='section'>
-        {/* <div className='left'>
-          <video src={gif} />
-        </div> */}
-        <div className='right'>
-          <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem voluptas, ut hic dolor praesentium fugit
-            Atquerepellendus earum cum mollitia?</p>
-          <button>Get started</button>
+      <div className='container section'>
+        <div className='row'>
+          <div className='col-12 right'>
+            <h1>Management of smart cities.</h1>
+            <p>An initiative to coordinate, integrate and control different city services with transparency, efficiency and privacy.</p>
+            <NavLink to="/login" style={{textDecoration: 'none'}}><button className="button">Get started</button></NavLink>
+          </div>
         </div>
       </div>
       <Articles />

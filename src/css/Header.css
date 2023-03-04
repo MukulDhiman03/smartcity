@@ -1,17 +1,12 @@
-nav {
-    display: flex;
-    /* border: 2px solid black; */
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
+
+
+.logo {
+    text-align: center;
 }
 
 ul {
-    margin-right: 4vh;
     list-style: none;
     display: flex;
-    /* border: 2px solid red; */
 }
 
 ul li {
@@ -19,13 +14,15 @@ ul li {
     font-size: 4vh;
 }
 
-.nav-link {
+.link{
     text-decoration: none;
     color: white;
+    padding: 14px;
+    background-color: black;
 }
 
-.nav-link:hover {
+.link:hover {
     background-color: white;
     color: black;
-    border-radius: 10px;
+    border-radius: 25px;
 }
