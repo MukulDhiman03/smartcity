@@ -1,0 +1,20 @@
+.formContainer {
+    border: 2px solid red;
+
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formContainer div {
+
+    padding: 4px;
+    margin: 4px
+}
+
+.formContainer div Field {
+    color: white;
+}
