@@ -1,76 +1,148 @@
 import React from 'react'
-import { Field, Form, Formik, ErrorMessage } from 'formik'
+import { Field, Formik, ErrorMessage } from 'formik'
 import * as yup from "yup";
 import "../css/Register.css"
 
 
-// regex --- >>  min 8 letter password, with at least a symbol, upper and lower case letters and a number
+const validateSchema = yup.object({
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
+    email: yup.string().required("Email is required"),
+    gender: yup.string().required("Choose your gender"),
+    phonenumber: yup.number().min(1000000000, "Invalid phone number").max(9999999999, "Invalid phone number").required("Phone number is must!"),
+    address: yup.string().required("Yeh to batao rehte kaha ho"),
+    adhaarcard: yup.number().required("You left this field, aise nhi chalega"),
 
-//form validation
-const validationSchema = yup.object({
-    name: yup.string().required("Name is required!"),
-    pno: yup.number().min(1000000000, "Invalid phone number").max(9999999999, "Invalid phone number").required("Phone number is must!"),
-    password: yup.string().matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/, " min 8 letter password, with at least a symbol, upper and lower case letters and a number").required(),
-    gender: yup.string().required("Gender is required"),
-    occupation: yup.string().required("Occupation is required")
 });
-
 
 const Register = () => {
     return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-6 left'>
-                    <Formik validationSchema={validationSchema} initialValues={{ name: "", pno: "", password: "", gender: "", occupation: "" }}
-                        onSubmit={(values) => {
-                            console.log(values);
-                        }}>
-                        <Form className="formContainer">
-                            <div class="form-outline flex-fill mb-0">
-                                <label class="form-label" htmlFor='name'>Your Name</label>
-                                <Field name="name" type="text" />
-                                <ErrorMessage name='name' />
-                            </div>
-                            <div>
-                                <label>Phone:</label>
-                                <Field name="pno" type="tel" />
-                                <ErrorMessage name='pno' />
-                            </div>
-                            <div>
-                                <label>Password:</label>
-                                <Field name="password" type="password" />
-                                <ErrorMessage name='password' />
-                            </div>
-                            <div>
-                                <label>Gender:</label>
-                                <label>Male</label>
-                                <Field name="gender" value="male" type="radio" />
-                                <label>Female</label>
-                                <Field name="gender" value="female" type="radio" />
-                                <ErrorMessage name='gender' />
+        <section className="h-100 bg-dark">
+            <div className="container py-5 h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col">
+                        <div className="card card-registration my-4">
+                            <div className="row g-0">
+                                <div className="col-xl-6 d-none d-xl-block">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                        alt="not found" className="img-fluid"
+                                        style={{ borderTopLeftRadius: "0.25rem", borderBottomLeftRadius: "0.25rem" }}
+                                    />
+                                </div>
 
+                                {/* Register form starts */}
+
+                                <Formik validationSchema={validateSchema} initialValues={{
+                                    firstName: "", lastName: "", email: "", gender: "", phonenumber: "",
+                                    adhaarcard: "", address: ""
+                                }} >
+
+                                    <div className="col-xl-6" >
+                                        <div className="card-body p-md-5 text-black">
+                                            <h3 className="mb-5 text-uppercase">Register yourself here</h3>
+
+
+                                            {/* first name and last name*/}
+                                            <div className="row">
+                                                <div className="col-md-6 mb-4">
+                                                    <div className="form-outline">
+                                                        <label className="form-label">First name</label>
+                                                        <Field type="text" name="firstName" className="form-control form-control-lg" />
+                                                        <div className='errorMsg' >
+                                                            <ErrorMessage name='firstName' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6 mb-4">
+                                                    <div className="form-outline">
+                                                        <label className="form-label">Last name</label>
+                                                        <Field type="text" name='lastName' className="form-control form-control-lg" />
+                                                        <div className='errorMsg' >
+                                                            <ErrorMessage name='lastName' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            {/* email address  */}
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" >Email</label>
+                                                <Field type="email" name="email" className="form-control form-control-lg" />
+                                                <div className='errorMsg' >
+                                                    <ErrorMessage name='email' />
+                                                </div>
+                                            </div>
+
+
+                                            {/* gender  */}
+                                            <div className="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                                                <h6 className="mb-0 me-4">Gender: </h6>
+                                                <div className="form-check form-check-inline mb-0 me-4">
+                                                    <label className="form-check-label">Female</label>
+                                                    <Field className="form-check-input" name="gender" type="radio"
+                                                        value="option1" />
+                                                </div>
+                                                <div className="form-check form-check-inline mb-0 me-4">
+                                                    <Field className="form-check-input" name="gender" type="radio"
+                                                        value="option2" />
+                                                    <label className="form-check-label"  >Male</label>
+                                                </div>
+
+                                                <div className="form-check form-check-inline mb-0">
+                                                    <Field className="form-check-input" name="gender" type="radio"
+                                                        value="option3" />
+                                                    <label className="form-check-label" >Other</label>
+                                                </div>
+                                                <div className='errorMsg' >
+                                                    <ErrorMessage name='gender' />
+                                                </div>
+
+                                            </div>
+
+                                            {/* contact number */}
+
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" >Contact Number</label>
+                                                <Field type="tel" name="phonenumber" className="form-control form-control-lg" />
+                                                <div className='errorMsg' >
+                                                    <ErrorMessage name='phonenumber' />
+                                                </div>
+                                            </div>
+
+                                            {/* address */}
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" >Address</label>
+                                                <Field type="text" name='address' class="form-control form-control-lg" />
+                                                <div className='errorMsg' >
+                                                    <ErrorMessage name='address' />
+                                                </div>
+                                            </div>
+
+                                            {/* adhaar card */}
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" >Adhaar Card</label>
+                                                <Field type="number" name="adhaarcard" className="form-control form-control-lg" />
+                                                <div className='errorMsg' >
+                                                    <ErrorMessage name='adhaarcard' />
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="d-flex justify-content-center pt-3">
+                                                <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                                                <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Formik>
                             </div>
-                            <div>
-                                <label>Occupation:</label>
-                                <Field name="occupation" as="select" >
-                                    <option value="self employed">Self Employed</option>
-                                    <option value="teacher">Teacher</option>
-                                    <option value="government employee">Government Employee</option>
-                                    <option value="student">Student</option>
-                                    <ErrorMessage name='occupation' />
-                                </Field>
-                            </div>
-                            <div>
-                                <button className='btn btn-primary btn-lg signinBtn' type='submit' >Register</button>
-                            </div>
-                        </Form>
-                    </Formik>
+                        </div>
+                    </div>
                 </div>
-                <div className='col-6 right'>
-                    <img src='' alt='not found' />
-                </div>
-            </div>
-        </div>
+            </div >
+        </section >
     )
 }
 
