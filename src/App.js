@@ -8,17 +8,20 @@ import Home from "./components/Home"
 import Profile from "./components/Profile"
 import Header from "./components/Header"
 import Register from "./components/Register"
+import CompleteProfile from './components/Profile/CompleteProfile';
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="about" element={<About />} />
+        <Route path="profile" element={<Profile />} >
+          <Route path="completeprofile" element={<CompleteProfile />} />
+        </Route>
+        <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
