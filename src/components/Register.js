@@ -2,6 +2,8 @@ import React from 'react'
 import { Field, Formik, ErrorMessage } from 'formik'
 import * as yup from "yup";
 import "../css/Register.css"
+import img from "../img/register.webp"
+
 
 
 const validateSchema = yup.object({
@@ -24,7 +26,7 @@ const Register = () => {
                         <div className="card card-registration my-4">
                             <div className="row g-0">
                                 <div className="col-xl-6 d-none d-xl-block">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                    <img src={img}
                                         alt="not found" className="img-fluid"
                                         style={{ borderTopLeftRadius: "0.25rem", borderBottomLeftRadius: "0.25rem" }}
                                     />

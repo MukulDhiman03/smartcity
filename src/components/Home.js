@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 const Home = () => {
   return (
     <>
-      <div className='container section'>
+      <div className='container-fluid section'>
         <div className='row'>
           <div className='col-12 right'>
             <h1>Management of smart cities.</h1>

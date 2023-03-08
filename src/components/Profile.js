@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import img from "../img/user.webp"
 import { GrMail } from "react-icons/gr"
 import { FaPhoneAlt } from "react-icons/fa"
@@ -27,7 +27,7 @@ const Profile = () => {
                             </tr>
                             <tr>
                                 <td>Mother Name</td>
-                                <td>Babby Doll</td>
+                                <td>MataShree</td>
                             </tr>
                             <tr>
                                 <td>DOB</td>
@@ -59,7 +59,7 @@ const Profile = () => {
                 <div className='col-8'>
                     <div className='row'>
                         <h3 className='text-center'>
-                            <Link>Complete Your profile</Link>
+                            <NavLink  to="/completeprofile" className="btn btn-primary btn-lg">Complete Your profile</NavLink>
                         </h3>
                     </div>
                     <div className='row justify-content-around mt-2'>

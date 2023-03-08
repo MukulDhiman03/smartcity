@@ -4,11 +4,8 @@ import "../css/Header.css"
 
 const Header = () => {
     return (
-        <div className='container mt-5'>
+        <div className='container-fluid' id='nav'>
             <div className='row'>
-                <div className="col-4 logo">
-                    <h1>SMARTCITY</h1>
-                </div>
                 <div class="col-6">
                     <ul>
                         <li>
@@ -25,6 +22,9 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
+                {/* <div className="col-4 logo">
+                    <h1>SMARTCITY</h1>
+                </div> */}
             </div>
         </div>
 
