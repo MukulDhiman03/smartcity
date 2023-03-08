@@ -8,8 +8,8 @@ import "../css/Profile.css"
 
 const Profile = () => {
     return (
-        <div className='conatiner'>
-            <div className='row justify-content-center mt-3'>
+        <div className='conatiner' id="profileContainer">
+            <div className='row justify-content-center p-3'>
                 <div className='col-3'>
                     <img className='text-center img-fluid w-25' src={img} alt="user not found" />
                     <h1>Steven smith</h1>
@@ -59,17 +59,17 @@ const Profile = () => {
                 <div className='col-8'>
                     <div className='row'>
                         <h3 className='text-center'>
-                            <NavLink  to="/completeprofile" className="btn btn-primary btn-lg">Complete Your profile</NavLink>
+                            <NavLink to="/completeprofile" className="btn btn-primary btn-lg">Complete Your profile</NavLink>
                         </h3>
                     </div>
-                    <div className='row justify-content-around mt-2'>
+                    <div className='row justify-content-around mt-3'>
                         <div className="col-3 profileCard">
                             <h4>Income tax</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
                                 eveniet suscipit vitae? Omnis labore neque cumque?
                             </div>
-                            <p className='justify-content-end'>Read More...</p>
+                            <p>Read More...</p>
                         </div>
                         <div className="col-3 profileCard">
                             <h4>Electricity</h4>
@@ -77,7 +77,7 @@ const Profile = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
                                 eveniet suscipit vitae? Omnis labore neque cumque?
                             </div>
-                            <p className='justify-content-end'>Read More...</p>
+                            <p>Read More...</p>
                         </div>
                         <div className="col-3 profileCard">
                             <h4>Water bills</h4>
@@ -85,7 +85,7 @@ const Profile = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
                                 eveniet suscipit vitae? Omnis labore neque cumque?
                             </div>
-                            <p className='justify-content-end'>Read More...</p>
+                            <p>Read More...</p>
                         </div>
                     </div>
                     <div className='row justify-content-around mt-3'>
@@ -95,7 +95,7 @@ const Profile = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
                                 eveniet suscipit vitae? Omnis labore neque cumque?
                             </div>
-                            <p className='justify-content-end'>Read More...</p>
+                            <p>Read More...</p>
                         </div>
                         <div className="col-3 profileCard">
                             <h4>Electricity</h4>
@@ -103,7 +103,7 @@ const Profile = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
                                 eveniet suscipit vitae? Omnis labore neque cumque?
                             </div>
-                            <p className='justify-content-end'>Read More...</p>
+                            <p>Read More...</p>
                         </div>
                         <div className="col-3 profileCard">
                             <h4>Water bills</h4>
@@ -111,33 +111,7 @@ const Profile = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
                                 eveniet suscipit vitae? Omnis labore neque cumque?
                             </div>
-                            <p className='justify-content-end'>Read More...</p>
-                        </div>
-                    </div>
-                    <div className='row justify-content-around mt-3'>
-                        <div className="col-3 profileCard">
-                            <h4>Income tax</h4>
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
-                                eveniet suscipit vitae? Omnis labore neque cumque?
-                            </div>
-                            <p className='justify-content-end'>Read More...</p>
-                        </div>
-                        <div className="col-3 profileCard">
-                            <h4>Electricity</h4>
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
-                                eveniet suscipit vitae? Omnis labore neque cumque?
-                            </div>
-                            <p className='justify-content-end'>Read More...</p>
-                        </div>
-                        <div className="col-3 profileCard">
-                            <h4>Water bills</h4>
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
-                                eveniet suscipit vitae? Omnis labore neque cumque?
-                            </div>
-                            <p className='justify-content-end'>Read More...</p>
+                            <p>Read More...</p>
                         </div>
                     </div>
                     <div className='row text-end mt-2 footerHeading'>

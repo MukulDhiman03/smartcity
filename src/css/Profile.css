@@ -1,11 +1,15 @@
+
 .profileCard {
     border: 2px solid black;
 
 }
 
 .profileCard h4 {
-    color: rgb(46, 110, 227);
+    text-align: center;
+}
 
+.profileCard p {
+    text-align: end;
 }
 
 .profileCard div {
@@ -15,5 +19,4 @@
 
 .footerHeading {
     color: rgb(46, 110, 227);
-
 }

@@ -2,9 +2,9 @@
     text-align: center;
     font-size: 6.5vh;
 }
-
-.articles {
+.articles div {
     margin-top: 3vh;
     padding: 8px;
     border-left: 4px solid black;
 }
+

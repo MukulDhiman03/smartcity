@@ -1,29 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
 #nav {
     background-color: black;
     font-weight: bolder;
+    height: 8vh;
 }
 
-.logo {
-    text-align: center;
-}
-
-ul {
-    list-style: none;
+#navItems {
+    height: 8vh;
     display: flex;
-    width: inherit;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
 }
 
-ul li {
-    margin-left: 2vh;
-    font-size: 4vh;
-}
 
 .link {
-    
     text-decoration: none;
     color: white;
-    padding: 14px;
     background-color: black;
+    padding: 14px;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
 }
 
 

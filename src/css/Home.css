@@ -1,11 +1,13 @@
 .section {
     height: 40vh;
-    /* margin-top: 4vh; */
-    background-image: url("../img/home.png");
+    border-bottom: 10px double black;
 }
 
 .right {
-    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 30vh;
 }
 
@@ -21,24 +23,8 @@
     font-weight: bolder;
 }
 
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: #1b1b1b;
-    height: 7vh;
-    width: 10vw;
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin: auto;
-    letter-spacing: 1px;
-    border-radius: 5%;
-    border: none;
-}
-
-.button:hover {
-    color: #1b1b1b;
-    background-color: white;
-    transform: scale(1.1);
+@media only screen and (max-width:500px) {
+    .right h1 {
+        font-size: 5.5vh;
+    }
 }
