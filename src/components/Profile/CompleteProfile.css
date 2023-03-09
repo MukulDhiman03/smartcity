@@ -1,0 +1,6 @@
+#user_details {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 4px;
+}

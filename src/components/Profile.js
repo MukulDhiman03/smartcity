@@ -10,7 +10,7 @@ const Profile = () => {
     return (
         <div className='conatiner' id="profileContainer">
             <div className='row justify-content-center p-3'>
-                <div className='col-3'>
+                <div className='col-md-3'>
                     <img className='text-center img-fluid w-25' src={img} alt="user not found" />
                     <h1>Steven smith</h1>
                     <p>
@@ -23,7 +23,7 @@ const Profile = () => {
                         <tbody>
                             <tr>
                                 <td>Father Name</td>
-                                <td>Steven smith</td>
+                                <td>Pita Ji</td>
                             </tr>
                             <tr>
                                 <td>Mother Name</td>
@@ -31,15 +31,15 @@ const Profile = () => {
                             </tr>
                             <tr>
                                 <td>DOB</td>
-                                <td>30/02/1975</td>
+                                <td>30/02/6969</td>
                             </tr>
                             <tr>
                                 <td>Contact Number</td>
-                                <td>959595595</td>
+                                <td>9798979897</td>
                             </tr>
                             <tr>
                                 <td>Occupation</td>
-                                <td>Drug Dealer</td>
+                                <td>BerojGaar</td>
                             </tr>
                             <tr>
                                 <td>Adhaar Card</td>
@@ -56,14 +56,14 @@ const Profile = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className='col-8'>
+                <div className='col-md-8'>
                     <div className='row'>
                         <h3 className='text-center'>
                             <NavLink to="/completeprofile" className="btn btn-primary btn-lg">Complete Your profile</NavLink>
                         </h3>
                     </div>
                     <div className='row justify-content-around mt-3'>
-                        <div className="col-3 profileCard">
+                        <div className="col-md-3 profileCard">
                             <h4>Income tax</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
@@ -71,7 +71,7 @@ const Profile = () => {
                             </div>
                             <p>Read More...</p>
                         </div>
-                        <div className="col-3 profileCard">
+                        <div className="col-md-3 profileCard">
                             <h4>Electricity</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
@@ -79,7 +79,7 @@ const Profile = () => {
                             </div>
                             <p>Read More...</p>
                         </div>
-                        <div className="col-3 profileCard">
+                        <div className="col-md-3 profileCard">
                             <h4>Water bills</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
@@ -89,7 +89,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='row justify-content-around mt-3'>
-                        <div className="col-3 profileCard">
+                        <div className="col-md-3 profileCard">
                             <h4>Income tax</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
@@ -97,7 +97,7 @@ const Profile = () => {
                             </div>
                             <p>Read More...</p>
                         </div>
-                        <div className="col-3 profileCard">
+                        <div className="col-md-3 profileCard">
                             <h4>Electricity</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
@@ -105,7 +105,7 @@ const Profile = () => {
                             </div>
                             <p>Read More...</p>
                         </div>
-                        <div className="col-3 profileCard">
+                        <div className="col-md-3 profileCard">
                             <h4>Water bills</h4>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum itaque, animi recusandae
