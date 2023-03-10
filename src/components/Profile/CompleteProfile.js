@@ -31,8 +31,11 @@ const CompleteProfile = () => {
                 </div>
             </div>
             <div className='row m-2'>
-                
+                <div className='col-md-12'>
+                    <h1 className='text-center'>Fill your details</h1>
+                </div>
             </div>
+
         </div>
     )
 }
