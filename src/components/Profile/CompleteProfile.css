@@ -4,3 +4,7 @@
     color: white;
     padding: 4px;
 }
+
+.errorMsg {
+    color: red;
+}
