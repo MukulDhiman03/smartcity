@@ -1,0 +1,32 @@
+#left {
+    margin-left: 2px;
+    border-radius: 15px;
+    background-color: #2C3333;
+    color: white;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#left div {
+    /* border: 2px solid white; */
+    height: 10vh;
+    align-items: center;
+    margin-bottom: 5vh;
+    
+}
+#left div:hover {
+   background-color: #9ea9a9;
+   cursor: pointer;
+   border-radius: 20px;
+   margin-left: 2vw;
+   margin-right: 2vw;
+   height: 10vh;
+}
+#left-icon{
+    height: 30vh;
+    width: 15vw;
+    
+}
+

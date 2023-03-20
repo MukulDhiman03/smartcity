@@ -1,29 +1,35 @@
-import './App.css';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import About from "./components/About"
-import Login from "./components/Login"
-import Home from "./components/Home"
-import Profile from "./components/Profile"
+import React from 'react'
 import Header from "./components/Header"
-import Register from "./components/Register"
-import CompleteProfile from './components/Profile/CompleteProfile';
+import Home from "./components/Home"
+import Login from './components/Login';
+import Profile from './components/Profile';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Register from './components/Register';
+import Userlogin from './components/user/Userlogin';
+import Addinfo from "./components/employee/Addinfo";
+import Adduser from "./components/employee/Adduser";
+import Seeinfo from "./components/employee/Seeinfo";
+// import "./App.css"
 
-function App() {
+
+
+const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="about" element={<About />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="completeprofile" element={<CompleteProfile />} />
-        <Route path="register" element={<Register />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/userlogin' element={<Userlogin />} />
+        <Route path='/addinfo' element={<Addinfo />} />
+        <Route path='/seeinfo' element={<Seeinfo />} />
+        <Route path='/adduser' element={<Adduser />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

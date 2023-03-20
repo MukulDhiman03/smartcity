@@ -1,33 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
-#nav {
-    background-color: black;
-    font-weight: bolder;
-    height: 8vh;
+nav {
+  background: #262626;
+
 }
 
-#navItems {
-    height: 8vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
+/* this is css for ul in navbar */
+nav ul {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  justify-content: flex-end;
+}
+
+nav ul li {
+  margin: 0 5px;
+}
+
+nav ul li a {
+  font-family: 'Inter', sans-serif;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.1rem;
+  padding: 6px 8px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 
-.link {
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    padding: 14px;
-    font-weight: bolder;
-    font-size: 1.2rem;
-    font-family: 'Inter', sans-serif;
+.links:hover {
+  background-color: white;
+  color: black;
+  border-radius: 5%;
 }
 
+nav .menu-btn i {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
 
-.link:hover {
-    background-color: white;
-    color: black;
-    border-radius: 5%;
+input[type="checkbox"] {
+  display: none;
+}
+
+/* this is css for responsiveness in nabar*/
+@media (max-width: 1000px) {
+  nav {
+    padding: 0 40px 0 50px;
+  }
+}
+
+@media (max-width: 920px) {
+  nav .menu-btn i {
+    display: block;
+  }
+
+  #click:checked~.menu-btn i:before {
+    content: "\f00d";
+  }
+
+  nav ul {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: auto;
+    width: 30%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+
+  #click:checked~ul {
+    left: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  #click:checked~ul li a {
+    margin-left: 0px;
+  }
+
+  nav ul li a.active,
+  nav ul li a:hover {
+    background: none;
+    color: cyan;
+  }
+}
+
+@media(max-width:500px) {
+  nav ul {
+    z-index: 10;
+    width: 50%;
+  }
+
 }
