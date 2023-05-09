@@ -8,7 +8,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Register from './components/Register';
 import Userlogin from './components/user/Userlogin';
 import Addinfo from "./components/employee/Addinfo";
-import Adduser from "./components/employee/Adduser";
+import SeeUserDetails from "./components/employee/SeeUserDetails";
 import Seeinfo from "./components/employee/Seeinfo";
 // import "./App.css"
 
@@ -26,7 +26,7 @@ const App = () => {
         <Route path='/userlogin' element={<Userlogin />} />
         <Route path='/addinfo' element={<Addinfo />} />
         <Route path='/seeinfo' element={<Seeinfo />} />
-        <Route path='/adduser' element={<Adduser />} />
+        <Route path='/seeuserdetails' element={<SeeUserDetails />} />
       </Routes>
     </BrowserRouter>
   )

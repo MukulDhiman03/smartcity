@@ -29,7 +29,7 @@ const Register = () => {
                 <div class="col-xl-6 d-none d-xl-block">
                   <img src={img}
                     alt="Sample photo" class="img-fluid"
-                    style={{borderTopLeftRadius: ".25rem", borderBottomLeftRadius: ".25rem"}} />
+                    style={{ borderTopLeftRadius: ".25rem", borderBottomLeftRadius: ".25rem" }} />
                 </div>
 
                 <Formik validationSchema={validateSchema} initialValues={{
@@ -121,13 +121,12 @@ const Register = () => {
                       </div>
 
                       <div class="d-flex justify-content-center pt-3">
-                        <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                        <button type="button" class="btn btn-dark btn-lg ms-2">Submit form</button>
                       </div>
 
                       <div class="d-flex justify-content-center pt-3">
                         <p class="small fw-bold mt-2 pt-1 mb-0">Have already an account?<NavLink to="/login" className="btn-primary">Login</NavLink></p>
                       </div>
-
                     </div>
                   </div>
                 </Formik>

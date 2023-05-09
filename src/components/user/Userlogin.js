@@ -59,7 +59,7 @@ const Userlogin = () => {
 
                                 {/* register */}
                                 <div className="text-center text-lg-start mt-4 pt-2">
-                                    <button type='submit' className="btn btn-primary btn-lg">Login</button>
+                                    <button type='submit' className="btn btn-dark btn-lg">Login</button>
                                 </div>
 
                                 {/* login as a user */}

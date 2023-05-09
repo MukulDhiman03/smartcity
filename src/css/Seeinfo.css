@@ -1,0 +1,24 @@
+#info_container {
+    margin: 10px;
+    font-size: larger;
+
+}
+
+#info_topbar {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #262626;
+    color: white;
+    border-radius: 2vh;
+    font-weight: bolder;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+h5{
+    font-weight: bolder;
+}
