@@ -10,6 +10,7 @@ import Userlogin from './components/user/Userlogin';
 import Addinfo from "./components/employee/Addinfo";
 import SeeUserDetails from "./components/employee/SeeUserDetails";
 import Seeinfo from "./components/employee/Seeinfo";
+import AddSociety from "./components/employee/AddSociety";
 // import "./App.css"
 
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/addinfo' element={<Addinfo />} />
         <Route path='/seeinfo' element={<Seeinfo />} />
         <Route path='/seeuserdetails' element={<SeeUserDetails />} />
+        <Route path='/addsociety' element={<AddSociety />} />
       </Routes>
     </BrowserRouter>
   )

@@ -12,6 +12,7 @@ const validateSchema = yup.object({
   rooms: yup.number().required(),
   roomsonrent: yup.number().required(),
   vehicles: yup.number().required(),
+  income: yup.number().required(),
 });
 
 const HomeDetails = () => {
@@ -22,7 +23,7 @@ const HomeDetails = () => {
       </div>
       <div>
         <Formik validationSchema={validateSchema} initialValues={{
-          houseno: "", ownername: "", owneremail: "", conatctnumber: "", members: "", rooms: "", roomsonrent: "", vehicles: ""
+          houseno: "", ownername: "", owneremail: "", conatctnumber: "", members: "", rooms: "", roomsonrent: "", vehicles: "", income: ""
         }} >
           <div className='container'>
             <div className='row'>
@@ -111,6 +112,17 @@ const HomeDetails = () => {
                   <Field type="number" name="vehicles" className="form-control form-control-lg" />
                   <div className='errorMsg' >
                     <ErrorMessage name='vehicles' />
+                  </div>
+                </div>
+              </div>
+
+              {/* monthly income */}
+              <div className='col-md-6'>
+                <div className="form-outline mb-4">
+                  <label className="form-label" >Monthly income of your or of any other person on whom you are dependent:</label>
+                  <Field type="number" name="income" className="form-control form-control-lg" />
+                  <div className='errorMsg' >
+                    <ErrorMessage name='income' />
                   </div>
                 </div>
               </div>

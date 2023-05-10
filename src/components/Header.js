@@ -37,6 +37,11 @@ const Header = () => {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/addinfo">Add info</NavLink>
                     </li>
+                    <li>
+                        <NavLink className="links" style={({ isActive }) => (isActive ? {
+                            backgroundColor: "white", color: "black"
+                        } : {})} to="/addsociety">Add Society</NavLink>
+                    </li>
                 </ul>
             </nav>
         </div>
