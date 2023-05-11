@@ -24,8 +24,8 @@ const EmployeeProfile = () => {
                         <br />
                         Name : Vaibhav Rana <br /><br />
                         Email : Vaibhav@gmail.com <br /><br />
-                        Age : 21<br /><br />
                         Phone No : 1234567890<br /><br />
+                        Department : Water<br /><br />
                     </div>
                 </div>
             </div>

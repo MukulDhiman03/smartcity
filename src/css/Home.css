@@ -1,8 +1,6 @@
 .home {
-    background-image: url("../img/home.avif");
-    background-size: cover;
-    background-position: center;
     color: white;
+    background: #262626;
 }
 
 
@@ -13,4 +11,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.homeContainer button:hover {
+    color: white;
+    background-color: #262626;
+    font-weight: bold;
 }

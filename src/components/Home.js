@@ -11,7 +11,7 @@ const Home = () => {
                     <div className='col-md-12'>
                         <h1>Management of smart cities.</h1>
                         <p>An initiative to coordinate, integrate and control different city services with transparency, efficiency and privacy.</p>
-                        <NavLink to="/login"><button className="btn btn-dark" ><span></span>Get started</button></NavLink>
+                        <NavLink to="/login"><button className="btn btn-light" ><span></span>Get started</button></NavLink>
                     </div>
                 </div>
             </div>
