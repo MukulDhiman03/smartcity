@@ -42,6 +42,16 @@ const Header = () => {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/addsociety">Add Society</NavLink>
                     </li>
+                    <li>
+                        <NavLink className="links" style={({ isActive }) => (isActive ? {
+                            backgroundColor: "white", color: "black"
+                        } : {})} to="/profile">Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="links" style={({ isActive }) => (isActive ? {
+                            backgroundColor: "white", color: "black"
+                        } : {})} to="/logout">Logout</NavLink>
+                    </li>
                 </ul>
             </nav>
         </div>

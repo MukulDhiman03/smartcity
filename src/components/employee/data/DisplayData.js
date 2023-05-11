@@ -4,7 +4,7 @@ import SocietyDetails from "./SocietyDetails"
 import ElectricityDetails from "./ElectricityDetails"
 import WaterDetails from "./WaterDetails"
 
-const DisplayData = (props) => {  
+const DisplayData = (props) => {
 
     if (props.state === "1") {
         return (
@@ -24,6 +24,11 @@ const DisplayData = (props) => {
     if (props.state === "4") {
         return (
             <WaterDetails />
+        )
+    }
+    else {
+        return (
+            <HomeDetails />
         )
     }
 }
