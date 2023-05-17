@@ -1,29 +1,70 @@
-import React from 'react'
-import { Field, Formik, ErrorMessage } from 'formik'
-import * as yup from "yup";
-
-
-const validateSchema = yup.object({
-  billNumber: yup.number().required(),
-  waterUsageAmount: yup.number().required(),
-  waterSource: yup.string().required(),
-  fixedBill: yup.number().required(),
-  billOwnerName: yup.string().required(),
-  sewageDisposalMethod: yup.string().required(),
-
-});
+import React, { useState } from 'react'
 
 const WaterDetails = () => {
+  const [billNumber, setBillNumber] = useState("");
+  const [watersageAmount, setwatersageAmount] = useState("");
+  const [waterSource, setwaterSource] = useState("");
+  const [fixedBill, setfixedBill] = useState("");
+  const [billOwnerName, setbillOwnerName] = useState("");
+  const [sewageDisposalMethod, setsewageDisposalMethod] = useState("");
+  const [houseno, setHouseNo] = useState("");
+
+  const setValues = (obj) => {
+    obj = {
+      billNumber: billNumber,
+      watersageAmount: watersageAmount,
+      waterSource: waterSource,
+      fixedBill: fixedBill,
+      billOwnerName: billOwnerName,
+      sewageDisposalMethod: sewageDisposalMethod,
+      houseno: houseno,
+    }
+    return obj;
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    let waterDetailsObj = setValues(waterDetailsObj);
+  }
+
+
+  const onBillNumberChange = (e) => {
+    setBillNumber(e.target.value);
+  }
+
+  const onWaterUsagAamountChange = (e) => {
+    setwatersageAmount(e.target.value);
+  }
+
+  const onWaterSourceChange = (e) => {
+    setwaterSource(e.target.value);
+  }
+
+  const onFixedBillChange = (e) => {
+    setfixedBill(e.target.value);
+  }
+
+  const onBillOwnerName = (e) => {
+    setbillOwnerName(e.target.value);
+  }
+
+  const onSewageDisposalMethodChange = (e) => {
+    setsewageDisposalMethod(e.target.value);
+  }
+
+  const onHouseNoChange = (e) => {
+    setHouseNo(e.target.value);
+  }
+
+
+
   return (
     <div>
       <div>
         <h1 className='text-center'>Enter Water Details</h1>
       </div>
       <div>
-        <Formik validationSchema={validateSchema} initialValues={{
-          billNumber: "", waterUsageAmount: "", waterSource: "", fixedBill: "", billOwnerName: "",
-          sewageDisposalMethod: "",
-        }} >
+        <form onSubmit={submitHandler}>
           <div className='container'>
             <div className='row'>
 
@@ -31,21 +72,15 @@ const WaterDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Bill Number:</label>
-                  <Field type="number" name="billNumber" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='billNumber' />
-                  </div>
+                  <input type="number" name="billNumber" value={billNumber} min="1" onChange={onBillNumberChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
-              {/* waterUsageAmount */}
+              {/* waterusageamount */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Water Usage Amount:</label>
-                  <Field type="number" name="waterUsageAmount" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='waterUsageAmount' />
-                  </div>
+                  <input type="number" name="watersageAmount" value={watersageAmount} min="1" onChange={onWaterUsagAamountChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
@@ -53,21 +88,15 @@ const WaterDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Water Source:</label>
-                  <Field type="text" name="waterSource" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='waterSource' />
-                  </div>
+                  <input type="text" name="waterSource" value={waterSource} onChange={onWaterSourceChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
-              {/* fixedBill */}
+              {/* fixedBill  */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Fixed Bill:</label>
-                  <Field type="number" name="fixedBill" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='fixedBill' />
-                  </div>
+                  <input type="text" name="fixedBill" value={fixedBill} onChange={onFixedBillChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
@@ -75,34 +104,36 @@ const WaterDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Bill Owner Name:</label>
-                  <Field type="text" name="billOwnerName" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='billOwnerName' />
-                  </div>
+                  <input type="text" name="billOwnerName" value={billOwnerName} onChange={onBillOwnerName} className="form-control form-control-lg" />
                 </div>
               </div>
 
-              {/* sewageDisposalMethod */}
+              {/* sewageDisposalMethod  */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
-                  <label className="form-label" >Sewage Disposal Method:</label>
-                  <Field type="text" name="sewageDisposalMethod" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='sewageDisposalMethod' />
-                  </div>
+                  <label className="form-label" >Sewage Disposal Mehod:</label>
+                  <input type="text" name="sewageDisposalMethod" value={sewageDisposalMethod} onChange={onSewageDisposalMethodChange} className="form-control form-control-lg" />
                 </div>
               </div>
+
+              {/* house no */}
+              <div className='col-md-6'>
+                <div className="form-outline mb-4">
+                  <label className="form-label" >House Number:</label>
+                  <input type="text" name="houseno" value={houseno} onChange={onHouseNoChange} className="form-control form-control-lg" />
+                </div>
+              </div>
+
 
 
 
               <div class="d-flex justify-content-center pt-3">
-                <button type="button" class="btn btn-dark btn-lg ms-2">Submit form</button>
+                <button type="submit" class="btn btn-dark btn-lg ms-2" >Submit form</button>
               </div>
+
             </div>
           </div>
-
-
-        </Formik>
+        </form>
       </div>
     </div>
   )

@@ -1,28 +1,57 @@
-import React from 'react'
-import { Field, Formik, ErrorMessage } from 'formik'
-import * as yup from "yup";
-
-
-const validateSchema = yup.object({
-  societyno: yup.string().required("House No "),
-  society: yup.string().required("Please provide owner name"),
-  city: yup.string().required(),
-  pincode: yup.number().required("Pincode is must!"),
-  street: yup.number().required(),
-  state: yup.string().required(),
-
-});
+import React, { useState } from 'react'
 
 const SocietyDetails = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  }
+
+
+  const [societyno, setSocietyno] = useState("");
+  const [societyname, setSocietyName] = useState("");
+  const [city, setCity] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [street, setStreet] = useState("");
+  const [state, setState] = useState("");
+
+
+  const onSocietyNoChange = (e) => {
+    setSocietyno(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const onSocietyNameChange = (e) => {
+    setSocietyName(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const onCityChange = (e) => {
+    setCity(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const onPinChange = (e) => {
+    setPincode(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const onStreetChange = (e) => {
+    setStreet(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const onStateChange = (e) => {
+    setState(e.target.value);
+    console.log(e.target.value);
+  }
+
+
   return (
     <div>
       <div>
         <h1 className='text-center'>Enter Society Details</h1>
       </div>
       <div>
-        <Formik validationSchema={validateSchema} initialValues={{
-          societyno: "", society: "", city: "", pincode: "", street: "", state: "",
-        }} >
+        <form onSubmit={submitHandler}>
           <div className='container'>
             <div className='row'>
 
@@ -30,10 +59,7 @@ const SocietyDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Society No:</label>
-                  <Field type="text" name="societyno" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='societyno' />
-                  </div>
+                  <input type="text" name="societyno" value={societyno} onChange={onSocietyNoChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
@@ -41,21 +67,15 @@ const SocietyDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Society Name:</label>
-                  <Field type="text" name="society" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='society' />
-                  </div>
+                  <input type="text" name="societyname" value={societyname} onChange={onSocietyNameChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
-              {/* city */}
+              {/* city  */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >City:</label>
-                  <Field type="text" name="city" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='city' />
-                  </div>
+                  <input type="text" name="city" value={city} onChange={onCityChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
@@ -63,44 +83,34 @@ const SocietyDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Pincode:</label>
-                  <Field type="tel" name="pincode" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='pincode' />
-                  </div>
+                  <input type="text" name="pincode" value={pincode} onChange={onPinChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
-              {/* Street */}
+              {/* street */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Street:</label>
-                  <Field type="number" name="street" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='street' />
-                  </div>
+                  <input type="text" name="street" value={street} onChange={onStreetChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
-              {/* state */}
+              {/* state  */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >State:</label>
-                  <Field type="text" name="state" className="form-control form-control-lg" />
-                  <div className='errorMsg' >
-                    <ErrorMessage name='state' />
-                  </div>
+                  <input type="text" name="state" value={state} onChange={onStateChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
 
               <div class="d-flex justify-content-center pt-3">
-                <button type="button" class="btn btn-dark btn-lg ms-2">Submit form</button>
+                <button type="submit" class="btn btn-dark btn-lg ms-2" >Submit form</button>
               </div>
+
             </div>
           </div>
-
-
-        </Formik>
+        </form>
       </div>
     </div>
   )
