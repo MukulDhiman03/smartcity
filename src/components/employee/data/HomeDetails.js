@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import api from "../../../api"
 
@@ -16,7 +16,7 @@ const HomeDetails = () => {
   const [noOfVehicles, setnoOfVehicles] = useState("");
   const [ownerType, setOwnerType] = useState("");
   const [society, setSociety] = useState("");
-
+  const [allsocieties, setAllScocities] = useState([])
 
   const [contacterror, setContactError] = useState(null);
   const [ownererror, setOwnerError] = useState(null);
@@ -79,7 +79,15 @@ const HomeDetails = () => {
       console.log(err);
     })
   }
-
+  useEffect(() => {
+    async function getAllSociety() {
+      await axios.get(`${api}/employee/get/societies/all`).then((res) =>
+        setAllScocities(res.data)).catch((err) => {
+          console.log("error is ", err)
+        })
+    }
+    getAllSociety()
+  }, [])
 
 
 
@@ -226,10 +234,9 @@ const HomeDetails = () => {
                 <div className="form-outline mb-4">
                   <label htmlFor="society">Society:</label>
                   <select name="society" id="society" onChange={onSocetyChange}>
-                    <option value="64673eda3c8abc20db7e40cc">64673eda3c8abc20db7e40cc</option>
-                    <option value="b">b</option>
-                    <option value="c">c</option>
-                    <option value="d">d</option>
+                    {allsocieties.map((item,index)=>(                    
+                      <option key={index} value={item._id}>{item.societyName}</option>
+                    ))}                   
                   </select>
                 </div>
               </div>

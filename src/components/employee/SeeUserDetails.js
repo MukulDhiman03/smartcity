@@ -1,6 +1,49 @@
+import { useEffect, useState } from 'react'
 import React from 'react'
+import axios from 'axios'
+import api from "../../api"
 
 const SeeUserDetails = () => {
+  const [society, setAllScocities] = useState([])
+  const [user, setUser] = useState([])
+  const [houseNo, setHouseNo] = useState("")
+  const [houseDetail, setHouseDetail] = useState([])
+  const [waterDetail, setWaterDetail] = useState([])
+  const [electricityDetail, setElectricityDetail] = useState([])
+
+  useEffect(() => {
+    async function getAllSociety() {
+      await axios.get(`${api}/employee/get/societies/all`).then((res) =>
+        setAllScocities(res.data)).catch((err) => {
+          console.log("error is ", err)
+        })
+    }
+    async function getAllUser() {
+      await axios.get(`${api}/employee/get/homes/all`).then((res) =>
+        setUser(res.data)).catch((err) => {
+          console.log("error is ", err)
+        })
+    }
+    getAllSociety()
+    getAllUser()
+  }, [])
+
+  useEffect(() => {
+    async function getHouseDetail() {
+      await axios.get(`${api}/employee/get/home/${houseNo}`).then((res) =>
+        setHouseDetail(res.data)).catch((err) => {
+          console.log("error is ", err)
+        })
+    }
+    if(houseNo){
+
+      getHouseDetail()
+    }
+  }, [houseNo])
+  function handleHomeChange(e){
+    setHouseNo(e.target.value);
+    console.log(e.target.val)
+  }
   return (
     <div className='container'>
       {/* top section */}
@@ -11,10 +54,9 @@ const SeeUserDetails = () => {
           <form>
             <label for="society">Choose a society:</label>
             <select name="society" id="society">
-              <option value="ramnagar">Ramnagar</option>
-              <option value="clementown">Clementown</option>
-              <option value="krishnanagar">Krishna nagar</option>
-              <option value="bchock">Bchock</option>
+              {society.map((item, index) => (
+                <option key={index} value={item._id}>{item.societyName}</option>
+              ))}
             </select>
           </form>
         </div>
@@ -23,13 +65,18 @@ const SeeUserDetails = () => {
           {/* select user */}
           <form>
             <label for="user">Choose a user:</label>
-            <select name="user" id="user">
-              <option value="user1">user1</option>
-              <option value="user2">user2</option>
-              <option value="user3">user3</option>
-              <option value="user4">user4</option>
+            <select name="user" id="user" onChange={handleHomeChange}>
+              {user.map((item, index) => (
+                <option key={index} value={item.houseNo}>{item.ownerName}</option>
+              ))}
             </select>
           </form>
+        </div>
+        <div>
+        <li>House no is {houseDetail.houseNo}</li>
+        <li>owner name is {houseDetail.ownerName}</li>
+        <li>owner email is {houseDetail.ownerEmail}</li>
+        <li>society is {houseDetail.society.societyName}</li>
         </div>
       </div>
 
