@@ -3,6 +3,8 @@ import "../css/Register.css"
 import { NavLink } from 'react-router-dom';
 import img from "../img/register.webp"
 import axios from 'axios';
+import api from "../api"
+
 
 
 const Register = () => {
@@ -76,6 +78,7 @@ const Register = () => {
       alert("Please Enter correct details");
       return false;
     }
+
     const registerData = {
       name: fullName,
       department: dept,
@@ -84,9 +87,14 @@ const Register = () => {
       email: email,
       password: password,
     }
-    const { data } = axios.post('https://bright-calf-miniskirt.cyclic.app/registration', { registerData })
-      .then(function (response) {
-        console.log(response);
+
+
+    await axios.post(`${api}/auth/registration`, registerData)
+      .then(function (res) {
+        if (res.status === 200) {
+          alert("You have successfully registerd");
+          console.log(res);
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -103,9 +111,9 @@ const Register = () => {
               <div className="row g-0">
 
                 {/* Register form starts */}
-                <div class="col-6 d-none d-xl-block">
+                <div className="col-6 d-none d-xl-block">
                   <img src={img}
-                    alt="Sample photo" class="img-fluid"
+                    alt="Sample" className="img-fluid"
                     style={{ borderTopLeftRadius: ".25rem", borderBottomLeftRadius: ".25rem" }} />
                 </div>
 
@@ -139,7 +147,7 @@ const Register = () => {
                       {/* Department  */}
                       <div className="d-md-flex justify-content-start align-items-center mb-4 py-2">
                         <div className="form-outline mb-4">
-                          <label for="department">Department:</label>
+                          <label htmlFor="department">Department:</label>
                           <select name="dept" value={dept} id="department" onChange={onDeptChange}>
                             <option value="water">Water</option>
                             <option value="electricity">Electricity</option>
@@ -148,6 +156,7 @@ const Register = () => {
                           </select>
                         </div>
                       </div>
+
 
                       {/* Phone number */}
                       <div className="form-outline mb-4">
@@ -163,15 +172,15 @@ const Register = () => {
                       {/* Password */}
                       <div className="form-outline mb-4">
                         <label className="form-label" >Password</label>
-                        <input type="number" name="password" value={password} onChange={onPasswordChange} className="form-control form-control-lg" required />
+                        <input type="password" name="password" value={password} onChange={onPasswordChange} className="form-control form-control-lg" required />
                       </div>
 
-                      <div class="d-flex justify-content-center pt-3">
-                        <button type="submit" class="btn btn-dark btn-lg ms-2">Submit form</button>
+                      <div className="d-flex justify-content-center pt-3">
+                        <button type="submit" className="btn btn-dark btn-lg ms-2">Submit form</button>
                       </div>
 
-                      <div class="d-flex justify-content-center pt-3">
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Have already an account?<NavLink to="/login" className="btn-primary">Login</NavLink></p>
+                      <div className="d-flex justify-content-center pt-3">
+                        <p className="small fw-bold mt-2 pt-1 mb-0">Have already an account?<NavLink to="/login" className="btn-primary">Login</NavLink></p>
                       </div>
                     </div>
                   </form>

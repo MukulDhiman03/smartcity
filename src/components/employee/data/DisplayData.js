@@ -1,6 +1,6 @@
 import React from 'react'
 import HomeDetails from './HomeDetails'
-import SocietyDetails from "./SocietyDetails"
+// import SocietyDetails from "./SocietyDetails"
 import ElectricityDetails from "./ElectricityDetails"
 import WaterDetails from "./WaterDetails"
 
@@ -11,11 +11,11 @@ const DisplayData = (props) => {
             <HomeDetails />
         )
     }
-    if (props.state === "2") {
-        return (
-            <SocietyDetails />
-        )
-    }
+    // if (props.state === "2") {
+    //     return (
+    //         <SocietyDetails />
+    //     )
+    // }
     if (props.state === "3") {
         return (
             <ElectricityDetails />

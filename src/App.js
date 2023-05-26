@@ -12,6 +12,7 @@ import SeeUserDetails from "./components/employee/SeeUserDetails";
 import Seeinfo from "./components/employee/Seeinfo";
 import AddSociety from "./components/employee/AddSociety";
 import Profile from "./components/employee/Profile";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import "./App.css"
 
 

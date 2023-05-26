@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import api from "../../../api"
+
 
 const HomeDetails = () => {
 
@@ -13,6 +16,8 @@ const HomeDetails = () => {
   const [noOfVehicles, setnoOfVehicles] = useState("");
   const [ownerType, setOwnerType] = useState("");
   const [society, setSociety] = useState("");
+
+
   const [contacterror, setContactError] = useState(null);
   const [ownererror, setOwnerError] = useState(null);
 
@@ -40,22 +45,9 @@ const HomeDetails = () => {
   }
 
 
-  const setValues = (obj) => {
-    obj = {
-      houseNo: houseno,
-      ownerName: ownername,
-      ownerPhone: contact,
-      numOfHouseMember: noOfMember,
-      ownerEmail: email,
-      noOfRooms: noOfRooms,
-      noOfRoomsOnRent: noOfRoomsOnRent,
-      areaOfHouse: areaOfHouse,
-    }
-    return obj;
-  }
 
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     if (!validation()) {
       alert("Please Enter correct details");
@@ -64,8 +56,34 @@ const HomeDetails = () => {
     else {
       console.log("Submitted");
     }
-    let homeDetailsObj = setValues(homeDetailsObj);
+
+    let homeDetailsObj = {
+      houseNo: houseno,
+      ownerName: ownername,
+      ownerPhone: contact,
+      numOfHouseMembers: noOfMember,
+      ownerEmail: email,
+      numOfRooms: noOfRooms,
+      numOfRoomsOnRent: noOfRoomsOnRent,
+      areaOfHouse: areaOfHouse,
+      ownerType: ownerType,
+      society: society,
+      numOfVehicles: noOfVehicles
+    }
+    await axios.post(`${api}/employee/add/home`, homeDetailsObj).then((res) => {
+      if (res === 200) {
+        console.log(res);
+        alert("Entered");
+      }
+    }).catch((err) => {
+      console.log(err);
+    })
   }
+
+
+
+
+
 
   const onHouseNoChange = (e) => {
     setHouseNo(e.target.value);
@@ -191,7 +209,7 @@ const HomeDetails = () => {
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Area of house:</label>
-                  <input type="text" name="areaOfHouse" value={areaOfHouse} onChange={onAreaOfHouseChange} className="form-control form-control-lg" />
+                  <input type="number" name="areaOfHouse" value={areaOfHouse} onChange={onAreaOfHouseChange} className="form-control form-control-lg" />
                 </div>
               </div>
 
@@ -206,9 +224,9 @@ const HomeDetails = () => {
               {/* society  */}
               <div className='col-md-6'>
                 <div className="form-outline mb-4">
-                  <label for="society">Society:</label>
+                  <label htmlFor="society">Society:</label>
                   <select name="society" id="society" onChange={onSocetyChange}>
-                    <option value="a">a</option>
+                    <option value="64673eda3c8abc20db7e40cc">64673eda3c8abc20db7e40cc</option>
                     <option value="b">b</option>
                     <option value="c">c</option>
                     <option value="d">d</option>
@@ -217,8 +235,8 @@ const HomeDetails = () => {
               </div>
 
 
-              <div class="d-flex justify-content-center pt-3">
-                <button type="submit" class="btn btn-dark btn-lg ms-2" >Submit form</button>
+              <div className="d-flex justify-content-center pt-3">
+                <button type="submit" className="btn btn-dark btn-lg ms-2" >Submit form</button>
               </div>
 
             </div>

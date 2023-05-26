@@ -1,11 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import img from "../../img/login.webp";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
+
 
 
 
 
 const Userlogin = () => {
+
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    const [email, setEmail] = useState("");
+    const onEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const [password, setPassword] = useState("");
+    const onPasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+
+    const submitHandler = async (e) => {
+        e.preveventDefault();
+
+        const userLoginObj = {
+            ownerEmail: email,
+            password: password,
+        }
+
+        axios.post('https://bright-calf-miniskirt.cyclic.app/auth/login', userLoginObj).then((res) => {
+            if (res.status === 200) {
+                alert("You have successfully loged in");
+            }
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+
+
     return (
         <div className='vh-100'>
             <div className="container-fluid h-custom">
@@ -19,7 +61,7 @@ const Userlogin = () => {
 
                         {/* Login Form */}
 
-                        <form>
+                        <form onSubmit={submitHandler}>
                             <div className="divider d-flex align-items-center my-4">
                                 <p className="text-center fw-bold mx-3 mb-0"></p>
                             </div>
@@ -27,8 +69,9 @@ const Userlogin = () => {
                             {/* email */}
                             <div className="form-outline mb-4">
                                 <label className="form-label">House no</label>
-                                <input type="email" name="houseno" className="form-control form-control-lg"
-                                    placeholder="Enter a valid house number" />
+                                <input type="email" name="email" value={email}
+                                    onChange={onEmailChange} className="form-control form-control-lg"
+                                    placeholder="Enter a valid email id" />
 
                             </div>
 
@@ -36,7 +79,8 @@ const Userlogin = () => {
                             {/* password */}
                             <div className="form-outline mb-3">
                                 <label className="form-label">Password</label>
-                                <input name="password" type="password" className="form-control form-control-lg"
+                                <input name="password" type="password" value={password}
+                                    onChange={onPasswordChange} className="form-control form-control-lg"
                                     placeholder="Enter password" />
 
                             </div>
@@ -50,31 +94,42 @@ const Userlogin = () => {
 
 
                             {/* forgot your password */}
-                            <div className='mt-2'>
-                                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    Launch demo modal
-                                </button>
+                            <Button variant="primary" onClick={handleShow}>
+                                Launch demo modal
+                            </Button>
 
-                                <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div className="modal-dialog" role="document">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div className="modal-body">
-                                                ...
-                                            </div>
-                                            <div className="modal-footer">
-                                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" className="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Modal heading</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <Form>
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                            <Form.Label>Email address</Form.Label>
+                                            <Form.Control
+                                                type="email"
+                                                placeholder="name@example.com"
+                                                autoFocus
+                                            />
+                                        </Form.Group>
+                                        <Form.Group
+                                            className="mb-3"
+                                            controlId="exampleForm.ControlTextarea1"
+                                        >
+                                            <Form.Label>Example textarea</Form.Label>
+                                            <Form.Control as="textarea" rows={3} />
+                                        </Form.Group>
+                                    </Form>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    <Button variant="primary" onClick={handleClose}>
+                                        Save Changes
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
 
                             {/* login as a user */}
                             <div className="text-center text-lg-start pt-2">
@@ -84,7 +139,7 @@ const Userlogin = () => {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

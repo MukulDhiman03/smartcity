@@ -22,31 +22,43 @@ const Header = () => {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/login">LogIn</NavLink>
                     </li>
+
                     <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/seeinfo">See Information</NavLink>
                     </li>
+
                     <li>
-                        <NavLink className="links" style={({ isActive }) => (isActive ? {
-                            backgroundColor: "white", color: "black"
-                        } : {})} to="/seeuserdetails">See User Details</NavLink>
+                        <li>
+                            <NavLink className="links" style={({ isActive }) => (isActive ? {
+                                backgroundColor: "white", color: "black"
+                            } : {})} to="/seeuserdetails">See User Details</NavLink>
+                        </li>
                     </li>
+
+
                     <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/addinfo">Add info</NavLink>
                     </li>
+
+
                     <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/addsociety">Add Society</NavLink>
                     </li>
+
+
+
                     <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/profile">Profile</NavLink>
                     </li>
+
                     <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"

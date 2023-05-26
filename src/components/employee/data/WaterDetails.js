@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react'
+import api from '../../../api';
+
 
 const WaterDetails = () => {
   const [billNumber, setBillNumber] = useState("");
@@ -9,23 +12,24 @@ const WaterDetails = () => {
   const [sewageDisposalMethod, setsewageDisposalMethod] = useState("");
   const [houseno, setHouseNo] = useState("");
 
-  const setValues = (obj) => {
-    obj = {
+
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    let waterDetailsObj = {
       billNumber: billNumber,
       watersageAmount: watersageAmount,
       waterSource: waterSource,
       fixedBill: fixedBill,
       billOwnerName: billOwnerName,
       sewageDisposalMethod: sewageDisposalMethod,
-      houseno: houseno,
+      houseNo: houseno,
     }
-    return obj;
+
+    axios.post(`${api}/employee/add/details/water`, waterDetailsObj);
   }
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    let waterDetailsObj = setValues(waterDetailsObj);
-  }
+  
 
 
   const onBillNumberChange = (e) => {

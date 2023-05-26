@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import axios from 'axios';
+import api from '../../api';
 
 
 
@@ -13,6 +14,7 @@ const AddSociety = () => {
 
 
   const submitHandler = (e) => {
+
     e.preventDefault();
     let societyObj = {
       societyNumber: societynumber,
@@ -22,7 +24,10 @@ const AddSociety = () => {
       street: street,
       state: state,
     }
+
+    axios.post(`${api}/employee/add/society`, societyObj);
   }
+
 
 
   const onSocietyNameChange = (e) => {
@@ -35,22 +40,18 @@ const AddSociety = () => {
 
   const onCityChange = (e) => {
     setCity(e.target.value);
-    console.log(e.target.value);
   }
 
   const onPinChange = (e) => {
     setPincode(e.target.value);
-    console.log(e.target.value);
   }
 
   const onStreetChange = (e) => {
     setStreet(e.target.value);
-    console.log(e.target.value);
   }
 
   const onStateChange = (e) => {
     setState(e.target.value);
-    console.log(e.target.value);
   }
 
 
@@ -115,8 +116,8 @@ const AddSociety = () => {
 
 
 
-              <div class="d-flex justify-content-center pt-3">
-                <button type="button" class="btn btn-dark btn-lg ms-2">Submit form</button>
+              <div className="d-flex justify-content-center pt-3">
+                <button type="submit" className="btn btn-dark btn-lg ms-2">Submit form</button>
               </div>
             </div>
           </div>

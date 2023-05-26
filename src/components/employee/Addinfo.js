@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DisplayData from './data/DisplayData.js'
 import './Addinfo.css'
 import { FaHome } from "react-icons/fa"
-import { MdOutlineFamilyRestroom } from "react-icons/md"
+// import { MdOutlineFamilyRestroom } from "react-icons/md"
 import { FaRegLightbulb } from "react-icons/fa"
 import { FaHandHoldingWater } from "react-icons/fa"
 import { FaAddressCard } from "react-icons/fa"
@@ -30,9 +30,9 @@ const Addinfo = () => {
             <div className='row'>
               <center><h3 onClick={() => stateHandler("1")}>  <FaHome />&nbsp; &nbsp; &nbsp;Home Details</h3></center>
             </div>
-            <div className='row'>
+            {/* <div className='row'>
               <center><h3 onClick={() => stateHandler("2")}><MdOutlineFamilyRestroom /> &nbsp; &nbsp; &nbsp;Society Details</h3></center>
-            </div>
+            </div> */}
             <div className='row'>
               <center><h3 onClick={() => stateHandler("3")}><FaRegLightbulb />&nbsp;  Electricity Details</h3></center>
             </div>

@@ -1,19 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "../css/Login.css"
 import img from "../img/login.webp"
+import axios from 'axios'
+import api from "../api"
 
 
 const Login = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+    const [empid, setEmpId] = useState("");
+    const [password, setPassword] = useState("");
 
 
-
-
-    const submitHandler = (e) => {
-        e.preventDefault();
+    const onEmpIdChange = (e) => {
+        setEmpId(e.target.value);
     }
+    const onPasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+
+
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        let empLoginObj = {
+            empId: empid,
+            password: password,
+        }
+        await axios.post(`${api}/auth/login/`, empLoginObj).then((res) => {
+            if (res.status === 200) {
+                alert(res.data.message);
+                localStorage.setItem("employee", res.data.employee);
+            }
+            else {
+                alert("Somthing went wrong")
+            }
+        }).catch((err) => {
+            console.log(err);
+        })
+
+    }
+
+
     return (
         <div className='vh-100'>
             <div className="container-fluid h-custom">
@@ -36,12 +65,9 @@ const Login = () => {
 
                             {/* email */}
                             <div className="form-outline mb-4">
-                                <label className="form-label">Email address</label>
-                                <input type="email" name="email" className="form-control form-control-lg"
-                                    placeholder="Enter a valid email address" />
-                                {/* <div className='errorMsg' >
-                                        <ErrorMessage name='email' />
-                                    </div> */}
+                                <label className="form-label">Employee Id:</label>
+                                <input type="number" name="empid" value={empid} onChange={onEmpIdChange} className="form-control form-control-lg"
+                                    placeholder="Enter a valid employee id" />
                             </div>
 
 
@@ -49,11 +75,9 @@ const Login = () => {
 
                             <div className="form-outline mb-3">
                                 <label className="form-label">Password</label>
-                                <input name="password" type="password" className="form-control form-control-lg"
+                                <input name="password" type="password" value={password}
+                                    onChange={onPasswordChange} className="form-control form-control-lg"
                                     placeholder="password" />
-                                {/* <div className='errorMsg'>
-                                        <ErrorMessage name='password' />
-                                    </div> */}
                             </div>
 
 
@@ -61,6 +85,7 @@ const Login = () => {
                             {/* register */}
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <button type='submit' className="btn btn-dark btn-lg">Login</button>
+
                                 <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <NavLink to="/register" className="link-danger">Register</NavLink></p>
                             </div>
 
