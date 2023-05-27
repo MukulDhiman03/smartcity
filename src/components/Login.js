@@ -4,6 +4,7 @@ import "../css/Login.css"
 import img from "../img/login.webp"
 import axios from 'axios'
 import api from "../api"
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -30,13 +31,14 @@ const Login = () => {
         }
         await axios.post(`${api}/auth/login/`, empLoginObj).then((res) => {
             if (res.status === 200) {
-                alert(res.data.message);
+                toast.success("Login successfully")
                 localStorage.setItem("employee", res.data.employee);
             }
             else {
-                alert("Somthing went wrong")
+                toast.error("Somthing went wrong")
             }
         }).catch((err) => {
+            toast.error("Somthing went wrong")
             console.log(err);
         })
 
@@ -46,6 +48,7 @@ const Login = () => {
     return (
         <div className='vh-100'>
             <div className="container-fluid h-custom">
+                <Toaster/>
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-md-9 col-lg-6 col-xl-5">
                         <img src={img} className="img-fluid" alt='not found' />

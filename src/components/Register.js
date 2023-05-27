@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import img from "../img/register.webp"
 import axios from 'axios';
 import api from "../api"
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -92,11 +93,12 @@ const Register = () => {
     await axios.post(`${api}/auth/registration`, registerData)
       .then(function (res) {
         if (res.status === 200) {
-          alert("You have successfully registerd");
+          toast.success("You have successfully registerd");
           console.log(res);
         }
       })
       .catch(function (error) {
+        toast.error("Something went wrong");
         console.log(error);
       });
   }
@@ -105,6 +107,7 @@ const Register = () => {
   return (
     <section className="h-100" style={{ backgroundColor: "#eee" }}>
       <div className="container py-5 h-100">
+        <Toaster/>
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col">
             <div className=" card-registration my-4">

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import api from "../../../api"
-
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 const HomeDetails = () => {
-
   const [houseno, setHouseNo] = useState("");
   const [ownername, setOwnername] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ const HomeDetails = () => {
 
   const [contacterror, setContactError] = useState(null);
   const [ownererror, setOwnerError] = useState(null);
-
+  
   const nameRegex = /^[a-zA-Z]{05,25}$/;
   const contactRegex = /^\d{10}$/;
 
@@ -45,16 +45,30 @@ const HomeDetails = () => {
   }
 
 
+  const sendEmail = async(password) => {
+    window.alert(password)
+    const templateParams = {
+      to_email: ownerEmail,
+      from_name: 'Smartcity Application',
+      to_name:ownername,
+      password:password,
+      message: 'This is a mendatory step otherwise you will loose your account',
+      // Add more template parameters as needed
+    };
 
+    await emailjs.send(process.env.REACT_APP_YOUR_SERVICE_ID, process.env.REACT_APP_YOUR_TEMPLATE_ID, templateParams, process.env.REACT_APP_YOUR_USER_ID)
+    .then((result) => {
+      toast.success('Email is sent to user');
+    }, (error) => {
+      toast.error('Oops... ' + JSON.stringify(error));
+    });
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!validation()) {
-      alert("Please Enter correct details");
+      toast.error("Please Enter correct details");
       return false;
-    }
-    else {
-      console.log("Submitted");
     }
 
     let homeDetailsObj = {
@@ -70,12 +84,13 @@ const HomeDetails = () => {
       society: society,
       numOfVehicles: noOfVehicles
     }
+    var password=""
     await axios.post(`${api}/employee/add/home`, homeDetailsObj).then((res) => {
-      if (res === 200) {
-        console.log(res);
-        alert("Entered");
-      }
+        password=res.data.password
+        sendEmail(password);
+        toast.success("User is added successfully")
     }).catch((err) => {
+      toast.error("Something went wrong")
       console.log(err);
     })
   }
@@ -141,6 +156,7 @@ const HomeDetails = () => {
     <div>
       <div>
         <h1 className='text-center'>Enter Home Details</h1>
+        <Toaster position='top-right' />
       </div>
       <div>
         <form onSubmit={submitHandler}>
