@@ -30,14 +30,14 @@ const Userlogin = () => {
 
 
     const submitHandler = async (e) => {
-        e.preveventDefault();
+        e.preventDefault();
 
         const userLoginObj = {
             ownerEmail: email,
             password: password,
         }
 
-        axios.post('https://bright-calf-miniskirt.cyclic.app/auth/login', userLoginObj).then((res) => {
+        await axios.post('https://bright-calf-miniskirt.cyclic.app/auth/user/login/', userLoginObj).then((res) => {
             if (res.status === 200) {
                 alert("You have successfully loged in");
             }
