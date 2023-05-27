@@ -46,9 +46,8 @@ const HomeDetails = () => {
 
 
   const sendEmail = async(password) => {
-    window.alert(password)
     const templateParams = {
-      to_email: ownerEmail,
+      to_email: email,
       from_name: 'Smartcity Application',
       to_name:ownername,
       password:password,
