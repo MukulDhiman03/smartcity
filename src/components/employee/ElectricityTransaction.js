@@ -19,9 +19,9 @@ const ElectricityTransaction = () => {
         }
         else
         {
-            navigate('/userlogin')
+            navigate('/addelectricitytransaction')
         }
-    },[])
+    },[navigate])
     useEffect(() => {
         if(houseNo)
         {

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
+
 const SocietyDetails = () => {
   const submitHandler = (e) => {
     e.preventDefault();
+
   }
 
 

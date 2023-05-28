@@ -90,8 +90,8 @@ const Login = () => {
                             {/* register */}
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <button type='submit' className="btn btn-dark btn-lg">Login</button>
-
-                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <NavLink to="/register" className="link-danger">Register</NavLink></p>
+{/* 
+                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <NavLink to="/register" className="link-danger">Register</NavLink></p> */}
                             </div>
 
                             {/* login as a user */}

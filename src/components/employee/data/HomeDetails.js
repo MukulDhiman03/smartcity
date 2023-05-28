@@ -21,7 +21,7 @@ const HomeDetails = () => {
   const [contacterror, setContactError] = useState(null);
   const [ownererror, setOwnerError] = useState(null);
 
-  const nameRegex = /^[a-zA-Z]{05,25}$/;
+  const nameRegex = /^[A-Za-z ]+$/;
   const contactRegex = /^\d{10}$/;
 
   const validation = () => {

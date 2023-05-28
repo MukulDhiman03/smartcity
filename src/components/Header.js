@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink,useNavigate } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom';
 import "../css/Header.css"
 // import { GiHamburgerMenu } from "react-icons/gi"
 
 const Header = () => {
-    var navigate=useNavigate()
-    var isEmployee=false
-    var profile=JSON.parse(localStorage.getItem('profile'))
-    if(profile)
-    {
-        isEmployee=profile.employee;
+    // var navigate=useNavigate()
+    var isEmployee = false
+    var profile = JSON.parse(localStorage.getItem('profile'))
+    if (profile) {
+        isEmployee = profile.employee;
     }
-    
+
     return (
         <div>
             <nav>
@@ -31,24 +30,24 @@ const Header = () => {
                         } : {})} to="/login">Login</NavLink>
                     </li>}
 
-                   {!isEmployee ?<li>
+                    {!isEmployee ? <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/seeinfo">User Profile</NavLink>
-                    </li>:null
-}
-                    {isEmployee?<li>
+                    </li> : null
+                    }
+                    {isEmployee ? <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/dashboard">Dashboard</NavLink>
-                    </li>:null}
+                    </li> : null}
 
-                       {isEmployee && <li>
-                            <NavLink className="links" style={({ isActive }) => (isActive ? {
-                                backgroundColor: "white", color: "black"
-                            } : {})} to="/seeuserdetails">User List</NavLink>
-                        </li>
-}
+                    {isEmployee && <li>
+                        <NavLink className="links" style={({ isActive }) => (isActive ? {
+                            backgroundColor: "white", color: "black"
+                        } : {})} to="/seeuserdetails">User List</NavLink>
+                    </li>
+                    }
 
                     {isEmployee && <li>
                         <NavLink className="links" style={({ isActive }) => (isActive ? {

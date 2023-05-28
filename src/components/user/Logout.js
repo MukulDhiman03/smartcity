@@ -5,7 +5,7 @@ const Logout = () => {
   useEffect(()=>{
    localStorage.removeItem('profile')
    navigate('/')
-  },[])
+  },[navigate])
   return (
     <div></div>
   )

@@ -18,6 +18,7 @@ import "./App.css"
 import AddWaterTransaction from "./components/employee/AddWaterTransaction"
 import ElectricityTransaction from './components/employee/ElectricityTransaction';
 import WaterTransaction from './components/employee/WaterTransaction';
+import AddElectricityTransaction from './components/employee/AddElectricityTransaction';
 // import "./App.css"
 
 
@@ -42,6 +43,7 @@ const App = () => {
         <Route path='/showelectricitytransaction' element={<ElectricityTransaction />} />
         <Route path='/showwatertransaction' element={<WaterTransaction />} />
         <Route path='/addwatertransaction' element={<AddWaterTransaction />} />
+        <Route path='/addelectricitytransaction' element={<AddElectricityTransaction />} />
       </Routes>
     </BrowserRouter>
   )

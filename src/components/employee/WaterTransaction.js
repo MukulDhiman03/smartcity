@@ -17,7 +17,7 @@ const WaterTransaction = () => {
         }
         else
         {
-            navigate('/userlogin')
+            navigate('/addwatertransaction')
         }
     },[])
     useEffect(() => {

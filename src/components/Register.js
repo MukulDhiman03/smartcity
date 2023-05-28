@@ -18,7 +18,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [nameerror, setNameError] = useState(null);
   const [phoneerror, setPhoneError] = useState(null);
-var navigate=useNavigate()
+  var navigate = useNavigate()
 
 
   //on change handlers
@@ -48,7 +48,7 @@ var navigate=useNavigate()
   }
 
   //regex
-  const nameRegex = /^[a-zA-Z]{5,50}$/;
+  const nameRegex = /^[A-Za-z ]+$/;
   const phoneRegex = /^\d{10}$/;
 
 
@@ -76,7 +76,6 @@ var navigate=useNavigate()
     e.preventDefault();
 
     if (!validate()) {
-      alert("Please Enter correct details");
       return false;
     }
 
@@ -92,15 +91,13 @@ var navigate=useNavigate()
 
     await axios.post(`${api}/auth/registration`, registerData)
       .then(function (res) {
-        if (res.status === 200) {
-          toast.success("You have successfully registerd");
-          console.log(res);
-          navigate('/login')
-        }
+        toast.success("You have successfully registerd");
+        // console.log(res);
+        navigate('/login')
       })
       .catch(function (error) {
         toast.error("Something went wrong");
-        console.log(error);
+        // console.log(error);
       });
   }
 

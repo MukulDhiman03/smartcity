@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import api from '../../api';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -25,7 +27,11 @@ const AddSociety = () => {
       state: state,
     }
 
-    axios.post(`${api}/employee/add/society`, societyObj);
+    axios.post(`${api}/employee/add/society`, societyObj).then((res) => {
+      toast.success('Society Registered');
+    }).catch((err) => {
+      toast.error('Oops... ' + JSON.stringify(err));
+    })
   }
 
 
@@ -60,6 +66,7 @@ const AddSociety = () => {
     <div>
       <div>
         <h1 className='text-center'>Enter your residential address</h1>
+        <Toaster position='top-right' />
       </div>
       <div>
         <form onSubmit={submitHandler}>
