@@ -41,47 +41,56 @@ const Dashboard = () => {
 
                     </div>
                     {/*------------------ candidate 3 votes detail ------------------------------------*/}
-                    <div className="child col" style={{ background: "#3A9BDC" }}>
+                    {/* <div className="child col" style={{ background: "#3A9BDC" }}>
                         <h3 className="h3" id="cd3"> 3 </h3>
                         <h4>No of Department</h4>
                         <Link to="/addinfo"><button disabled className='child-card-button'>Add deparment</button></Link>
-
-                    </div>
-                    <div className="child col" style={{ background: "orange" }}>
-                        <h3 className="h3" id="cd1">{data.employeeCount}</h3>
+                    </div> */}
+                    <div className="child col" style={{ background: "#3A9BDC" }}>
+                        <h3 className="h3" id="cd4">{data.employeeCount}</h3>
                         <h4>No of Employees </h4>
                         <Link to="/register"><button className='child-card-button'>Add Employees</button></Link>
 
                     </div>
+                    <div className="child col" style={{ background: "orange" }}>
+                        <h3 className="h3" id="cd5">{data.employeeCount}</h3>
+                        <h4>Electricity Transaction</h4>
+                        <Link to="/showwatertransaction"><button className='child-card-button'>Add Transaction</button></Link>
+                    </div>
+                    <div className="child col" style={{ background: "orange" }}>
+                        <h3 className="h3" id="cd5">{data.employeeCount}</h3>
+                        <h4>Water Transaction</h4>
+                        <Link to="/addwatertransaction"><button className='child-card-button'>Add Transaction</button></Link>
+                    </div>
                 </div>
-                <h2 style={{marginLeft:"80px"}}>Society Data</h2>
-               <center> 
-                <Table striped bordered hover style={{width:"90%"}}>
-                    <thead style={{background:"black",color:"white"}}>
-                        <tr>
-                            <th>S.No</th>
-                            <th>Society Name</th>
-                            <th>City</th>
-                            <th>State</th>
-                            <th>Pincode</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {society.map((item,index) => {
-                            return(
-                            <tr key={index}>
-                                <td>{item.societyNumber}</td>
-                                <td>{item.societyName}</td>
-                                <td>{item.city}</td>
-                                <td>{item.state}</td>
-                                <td>{item.pincode}</td>
+                <h2 style={{ marginLeft: "80px" }}>Society Data</h2>
+                <center>
+                    <Table striped bordered hover style={{ width: "90%" }}>
+                        <thead style={{ background: "black", color: "white" }}>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Society Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Pincode</th>
                             </tr>
-                            )
-                        })
+                        </thead>
+                        <tbody>
+                            {society.map((item, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{item.societyNumber}</td>
+                                        <td>{item.societyName}</td>
+                                        <td>{item.city}</td>
+                                        <td>{item.state}</td>
+                                        <td>{item.pincode}</td>
+                                    </tr>
+                                )
+                            })
 
-                        }
-                    </tbody>
-                </Table></center>
+                            }
+                        </tbody>
+                    </Table></center>
             </div>
         </>
     )

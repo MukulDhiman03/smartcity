@@ -1,0 +1,65 @@
+/* #water-cards {
+    width: 18rem;
+    margin: 2px;
+    border: 2px solid black;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap");
+
+/* body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #212121;
+    font-family: "Ubuntu", sans-serif;
+} */
+
+#card {
+    /* width: 190px;
+    height: 254px; */
+    background: #1a1a1a;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 18rem;
+    margin: 15px;
+}
+
+#card:before {
+    position: absolute;
+    content: "";
+    top: -0.25em;
+    left: -0.25em;
+    background: linear-gradient(51deg, #f490ff, #be0786, #4eafff, #700099);
+    z-index: -1;
+    width: calc(100% + 0.5em);
+    height: calc(100% + 0.5em);
+    border-radius: 15px;
+    animation: gradient 5s ease infinite;
+    background-size: 350% 350% !important;
+    box-shadow: 0 8px 12px #4eafff88;
+    transition: 0.5s ease-in-out;
+}
+
+#card:hover:before {
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+        box-shadow: 0px 0px 15px #4eafff;
+    }
+
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0px 10px #4eafff;
+    }
+
+    100% {
+        background-position: 0% 50%;
+        box-shadow: 0px 0px 20px #4eafff;
+    }
+}

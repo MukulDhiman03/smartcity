@@ -35,9 +35,11 @@ const Seeinfo = () => {
   useEffect(()=>{
     
     var profile=JSON.parse(localStorage.getItem('profile'))
-    if(profile.houseNo)
-    {
+    if(profile)
+    { if(profile.houseNo)
+      {
         setHouseNo(profile.houseNo);
+      }
     }
     else
     {
