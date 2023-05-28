@@ -3,20 +3,33 @@ import "../../css/EmployeeProfile.css"
 import bar from "../../img/bar.png"
 import api from "../../api"
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom'
 const EmployeeProfile = () => {
 
     const [empDetail, setEmpDetail] = useState("");
-    let empId = "employee1"
+    const [employee,setEmployee]=useState('')
+    var navigate=useNavigate()
+    useEffect(()=>{
+    
+        var profile=JSON.parse(localStorage.getItem('profile'))
+        if(profile.empId)
+        {
+            setEmployee(profile.empId);
+        }
+        else
+        {
+            navigate('/login')
+        }
+    },[])
 
     useEffect(() => {
-        axios.get(`${api}/employee/get/employee/${empId}`).then((res) => {
+        axios.get(`${api}/employee/get/employee/${employee}`).then((res) => {
             console.log(res.data);
             setEmpDetail(res.data);
         }).catch((err) => {
             console.log(err);
         })
-    }, [])
+    }, [employee])
 
 
     return (

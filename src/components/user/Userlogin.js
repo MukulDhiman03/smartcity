@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import img from "../../img/login.webp";
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -15,6 +15,7 @@ const Userlogin = () => {
 
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
+    var navigate=useNavigate()
 
 
     function handleClose() {
@@ -68,6 +69,8 @@ const Userlogin = () => {
             if (res.status === 200) {
                 window.alert("You have successfully loged in");
             }
+            localStorage.setItem("profile", JSON.stringify(res.data));
+            navigate('/seeinfo')
         }).catch((err) => {
             console.log(err);
         })

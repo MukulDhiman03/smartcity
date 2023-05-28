@@ -3,25 +3,23 @@ import React, { useEffect, useState } from 'react'
 import "../../css/Seeinfo.css"
 import axios from 'axios'
 import api from '../../api'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 
 const Seeinfo = () => {
-
+  var navigate=useNavigate()
   const [homeData, sethomeData] = useState([]);
   const [waterData, setwaterData] = useState([]);
   const [electricityData, setElectricity] = useState([]);
-
+  const [houseNo,setHouseNo]=useState('')
   const getHomeValues = async () => {
-    var houseNo = "mukul101";
     await axios.get(`${api}/employee/get/home/${houseNo}`).then((res) => {
       sethomeData(res.data)
       console.log(res.data)
     })
   }
-
+  
   const getWaterValues = async () => {
-    var houseNo = "mukul101";
     await axios.get(`${api}/employee/get/details/water/${houseNo}`).then((res) => {
       // console.log(res.data);
       setwaterData(res.data);
@@ -29,19 +27,32 @@ const Seeinfo = () => {
   }
 
   const getElectricityValues = async () => {
-    var houseNo = "mukul101";
     await axios.get(`${api}/employee/get/details/electricity/${houseNo}`).then((res) => {
       console.log(res.data);
       setElectricity(res.data);
     })
   }
+  useEffect(()=>{
+    
+    var profile=JSON.parse(localStorage.getItem('profile'))
+    if(profile.houseNo)
+    {
+        setHouseNo(profile.houseNo);
+    }
+    else
+    {
+        navigate('/userlogin')
+    }
+},[])
 
 
   useEffect(() => {
+    if(houseNo){
     getHomeValues();
     getWaterValues();
     getElectricityValues();
-  }, [])
+    }
+  }, [houseNo])
 
 
   return (

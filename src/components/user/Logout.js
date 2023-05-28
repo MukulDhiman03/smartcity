@@ -1,8 +1,13 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Logout = () => {
+  var navigate=useNavigate()
+  useEffect(()=>{
+   localStorage.removeItem('profile')
+   navigate('/')
+  },[])
   return (
-    <div>Logout ho gya hai berother</div>
+    <div></div>
   )
 }
 

@@ -5,7 +5,7 @@ import img from "../img/register.webp"
 import axios from 'axios';
 import api from "../api"
 import toast, { Toaster } from 'react-hot-toast';
-
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
@@ -18,7 +18,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [nameerror, setNameError] = useState(null);
   const [phoneerror, setPhoneError] = useState(null);
-
+var navigate=useNavigate()
 
 
   //on change handlers
@@ -95,6 +95,7 @@ const Register = () => {
         if (res.status === 200) {
           toast.success("You have successfully registerd");
           console.log(res);
+          navigate('/login')
         }
       })
       .catch(function (error) {

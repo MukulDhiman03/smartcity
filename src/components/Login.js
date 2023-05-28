@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import "../css/Login.css"
 import img from "../img/login.webp"
 import axios from 'axios'
@@ -10,8 +10,9 @@ import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
     const [empid, setEmpId] = useState("");
     const [password, setPassword] = useState("");
+    var navigate=useNavigate()
 
-
+ 
     const onEmpIdChange = (e) => {
         setEmpId(e.target.value);
     }
@@ -32,7 +33,8 @@ const Login = () => {
         await axios.post(`${api}/auth/login/`, empLoginObj).then((res) => {
             if (res.status === 200) {
                 toast.success("Login successfully")
-                localStorage.setItem("employee", res.data.employee);
+                localStorage.setItem("profile", JSON.stringify(res.data));
+                navigate('/dashboard')
             }
             else {
                 toast.error("Somthing went wrong")
@@ -69,7 +71,7 @@ const Login = () => {
                             {/* email */}
                             <div className="form-outline mb-4">
                                 <label className="form-label">Employee Id:</label>
-                                <input type="number" name="empid" value={empid} onChange={onEmpIdChange} className="form-control form-control-lg"
+                                <input type="text" name="empid" value={empid} onChange={onEmpIdChange} className="form-control form-control-lg"
                                     placeholder="Enter a valid employee id" />
                             </div>
 
