@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import api from '../../api'
 import { useNavigate } from 'react-router-dom'
+import "../../css/WaterTransaction.css"
+
 
 const ElectricityTransaction = () => {
 
@@ -41,7 +43,7 @@ const ElectricityTransaction = () => {
                 </div>
                 {
                     transactionData.map(() =>
-                        <div className="card" style={{ width: "18rem", margin: "2px" }}>
+                        <div className="card" id="card">
                             <div className="card-body text-center">
                                 <h5 className="card-title">Transaction Id - {transactionData[0].transactionId}</h5>
                                 <p className="card-text">Date - {transactionData[0].date}</p>

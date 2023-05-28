@@ -39,7 +39,7 @@ const ElectricityDetails = () => {
       console.log("Submitted");
     }
 
-    var electricityDetailsObj = {
+    let electricityDetailsObj = {
       meterNumber: meterno,
       meterPower: meterpower,
       accountHolderName: holdername,

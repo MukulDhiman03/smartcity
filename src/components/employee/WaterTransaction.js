@@ -1,7 +1,8 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import api from '../../api'
 import { useNavigate } from 'react-router-dom'
+import "../../css/WaterTransaction.css"
 
 const WaterTransaction = () => {
     const [transactionData, setTransactionData] = useState([]);
@@ -31,24 +32,25 @@ const WaterTransaction = () => {
         })
     }
     }, [houseNo])
+    }, [])
+    //    style={{ width: " 18rem", margin: "2px" }}
 
     return (
         <div className='container'>
-            <div className='row text-center'>
-                <div className='col-12'>
-                    <h1>Here you can see all your water transactons.</h1>
+            <div className='row '>
+                <div className='col-12 text-center'>
+                    <h1>Here you can see all water transactons.</h1>
                 </div>
                 {
                     transactionData.map(() =>
-                        <div className='col-12' >
-                            <div className="card" style={{ width: " 18rem" }}>
-                                <div className="card-body">
-                                    <h5 className="card-title">Transaction Id - {transactionData[0].transactionId}</h5>
-                                    <p className="card-text">Transaction Date - {transactionData[0].date}</p>
-                                    <p className="card-text">Transaction Time - {transactionData[0].time}</p>
-                                    <p className="card-text">Payment Method - {transactionData[0].paymentMethod}</p>
-                                    <p className="card-text">Amount - {transactionData[0].amount}</p>
-                                </div>
+
+                        <div className="card" id="card">
+                            <div className="card-body">
+                                <h5 className="card-title">Transaction Id - {transactionData[0].transactionId}</h5>
+                                <p className="card-text">Transaction Date - {transactionData[0].date}</p>
+                                <p className="card-text">Transaction Time - {transactionData[0].time}</p>
+                                <p className="card-text">Payment Method - {transactionData[0].paymentMethod}</p>
+                                <p className="card-text">Amount - {transactionData[0].amount}</p>
                             </div>
                         </div>
                     )

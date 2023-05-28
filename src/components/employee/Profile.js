@@ -23,6 +23,7 @@ const EmployeeProfile = () => {
     },[])
 
     useEffect(() => {
+        let empId = "employee1"
         axios.get(`${api}/employee/get/employee/${employee}`).then((res) => {
             console.log(res.data);
             setEmpDetail(res.data);

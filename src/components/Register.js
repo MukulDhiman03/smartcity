@@ -108,7 +108,7 @@ var navigate=useNavigate()
   return (
     <section className="h-100" style={{ backgroundColor: "#eee" }}>
       <div className="container py-5 h-100">
-        <Toaster/>
+        <Toaster />
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col">
             <div className=" card-registration my-4">
