@@ -6,31 +6,28 @@ import "../../css/WaterTransaction.css"
 
 const WaterTransaction = () => {
     const [transactionData, setTransactionData] = useState([]);
-    const [houseNo,setHouseNo]=useState('')
-    var navigate=useNavigate()
-    useEffect(()=>{
-    
-        var profile=JSON.parse(localStorage.getItem('profile'))
-        if(profile.houseNo)
-        {
+    const [houseNo, setHouseNo] = useState('')
+    var navigate = useNavigate()
+    useEffect(() => {
+
+        var profile = JSON.parse(localStorage.getItem('profile'))
+        if (profile.houseNo) {
             setHouseNo(profile.houseNo);
         }
-        else
-        {
+        else {
             navigate('/addwatertransaction')
         }
-    },[])
+    }, [])
     useEffect(() => {
-        if(houseNo)
-        {
-        axios.get(`${api}/employee/get/transactions/water/all/${houseNo}`).then((res) => {
-            // alert(res);
-            console.log(res.data);
-            setTransactionData(res.data);
-        }).catch((err) => {
-            alert(err);
-        })
-    }
+        if (houseNo) {
+            axios.get(`${api}/employee/get/transactions/water/all/${houseNo}`).then((res) => {
+                // alert(res);
+                console.log(res.data);
+                setTransactionData(res.data);
+            }).catch((err) => {
+                alert(err);
+            })
+        }
     }, [houseNo])
     //    style={{ width: " 18rem", margin: "2px" }}
 
@@ -41,15 +38,14 @@ const WaterTransaction = () => {
                     <h1>Here you can see all water transactons.</h1>
                 </div>
                 {
-                    transactionData.map(() =>
-
-                        <div className="card" id="card">
+                    transactionData.map((item, index) =>
+                        <div className="card" id="card" key={index}>
                             <div className="card-body">
-                                <h5 className="card-title">Transaction Id - {transactionData[0].transactionId}</h5>
-                                <p className="card-text">Transaction Date - {transactionData[0].date}</p>
-                                <p className="card-text">Transaction Time - {transactionData[0].time}</p>
-                                <p className="card-text">Payment Method - {transactionData[0].paymentMethod}</p>
-                                <p className="card-text">Amount - {transactionData[0].amount}</p>
+                                <h5 className="card-title">Transaction Id - {item.transactionId}</h5>
+                                <p className="card-text">Transaction Date - {item.date}</p>
+                                <p className="card-text">Transaction Time - {item.time}</p>
+                                <p className="card-text">Payment Method - {item.paymentMethod}</p>
+                                <p className="card-text">Amount - {item.amount}</p>
                             </div>
                         </div>
                     )

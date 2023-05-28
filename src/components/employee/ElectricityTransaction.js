@@ -42,14 +42,14 @@ const ElectricityTransaction = () => {
                     <h1>Here you can see all the electericity transactons.</h1>
                 </div>
                 {
-                    transactionData.map(() =>
-                        <div className="card" id="card">
+                    transactionData.map((item,index) =>
+                        <div className="card" id="card" key={index}>
                             <div className="card-body text-center">
-                                <h5 className="card-title">Transaction Id - {transactionData[0].transactionId}</h5>
-                                <p className="card-text">Date - {transactionData[0].date}</p>
-                                <p className="card-text">Transaction Time - {transactionData[0].time}</p>
-                                <p className="card-text">Payment Method - {transactionData[0].paymentMethod}</p>
-                                <p className="card-text">Amount - {transactionData[0].amount}</p>
+                                <h5 className="card-title">Transaction Id - {item.transactionId}</h5>
+                                <p className="card-text">Date - {item.date}</p>
+                                <p className="card-text">Transaction Time - {item.time}</p>
+                                <p className="card-text">Payment Method - {item.paymentMethod}</p>
+                                <p className="card-text">Amount - {item.amount}</p>
                             </div>
                         </div>
                     )
