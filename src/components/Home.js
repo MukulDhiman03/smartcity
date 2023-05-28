@@ -5,18 +5,43 @@ import Features from './Features'
 
 const Home = () => {
     return (
+        <>
         <div className='home'>
-            <div className='container-fluid homeContainer'>
-                <div className='row'>
-                    <div className='col-md-12'>
-                        <h1>Management of smart cities.</h1>
-                        <p>An initiative to coordinate, integrate and control different city services with transparency, efficiency and privacy.</p>
-                        <NavLink to="/login"><button className="btn btn-light" ><span></span>Get started</button></NavLink>
-                    </div>
-                </div>
-            </div>
-            <Features />
+
+           <div className='container2'>
+                       <div className='text'>
+                             <h1 className='headText'>Management of smart cities.</h1>
+                             <p>An initiative to coordinate, integrate and control different city services with transparency, efficiency and privacy.</p>
+                             <NavLink to="/login"><button className="homeBtn" ><span></span>Get started</button></NavLink>
+                       </div>
+
+                       <div className='image'>
+
+                      
+                              <img src="/building.jpg" className="img" alt="..." />
+                       
+
+                       </div>
+                 
+
+
+           </div>
+
+
+
+
+
+            
         </div>
+
+<div>
+
+<Features />
+
+</div>
+
+</>
+
     )
 }
 

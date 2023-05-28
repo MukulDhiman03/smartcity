@@ -28,6 +28,11 @@ const Header = () => {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/seeinfo">See Information</NavLink>
                     </li>
+                    <li>
+                        <NavLink className="links" style={({ isActive }) => (isActive ? {
+                            backgroundColor: "white", color: "black"
+                        } : {})} to="/dashboard">Dashboard</NavLink>
+                    </li>
 
                     <li>
                         <li>

@@ -12,8 +12,9 @@ import SeeUserDetails from "./components/employee/SeeUserDetails";
 import Seeinfo from "./components/employee/Seeinfo";
 import AddSociety from "./components/employee/AddSociety";
 import Profile from "./components/employee/Profile";
+import Dashboard from './components/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import "./App.css"
+import "./App.css"
 
 
 
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/addsociety' element={<AddSociety />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/logout' element={<Logout />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   )

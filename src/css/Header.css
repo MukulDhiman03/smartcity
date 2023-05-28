@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 nav {
-  background: #262626;
+  background: #fffefe;
+  height:80px;
 
 }
 
 /* this is css for ul in navbar */
 nav ul {
-  height: 8vh;
+  height: 14vh;
   display: flex;
   align-items: center;
   list-style: none;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5); */
   justify-content: flex-end;
 }
 
@@ -21,10 +22,10 @@ nav ul li {
 
 nav ul li a {
   font-family: 'Inter', sans-serif;
-  color: #f2f2f2;
+  color: #4a4a4a;
   text-decoration: none;
   font-weight: bolder;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   padding: 6px 8px;
   border-radius: 5px;
   letter-spacing: 1px;
@@ -33,10 +34,14 @@ nav ul li a {
 
 
 .links:hover {
-  background-color: white;
-  color: black;
+  border: 1px solid rgb(48, 3, 59);
+  background-color: aliceblue;
+  color: rgb(37, 10, 51);
   border-radius: 5%;
+  font-weight: bold;
 }
+
+
 
 nav .menu-btn i {
   color: #fff;
@@ -69,8 +74,8 @@ input[type="checkbox"] {
     position: fixed;
     top: 80px;
     left: -100%;
-    background: #111;
-    height: auto;
+    /* background: #111; */
+   
     width: 30%;
     text-align: center;
     display: block;
