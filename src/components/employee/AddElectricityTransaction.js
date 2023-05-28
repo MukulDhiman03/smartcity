@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import React from 'react'
 import api from "../../api";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -49,7 +51,14 @@ const AddElectricityTransaction = () => {
             time: time
         }
 
-        await axios.post(`${api}/employee/add/transaction/electricity`, transactionObj)
+        await axios.post(`${api}/employee/add/transaction/electricity`, transactionObj).then((res) => {
+            if (res.status === 200) {
+                toast.success("You have successfully entered the details");
+
+            }
+        }).catch((err) => {
+            toast.error("Something went wrong");
+        })
 
     }
 
@@ -57,7 +66,7 @@ const AddElectricityTransaction = () => {
         <div>
             <div>
                 <h1 className='text-center'>Enter Electricity Transaction Details</h1>
-                {/* <Toaster position='top-right' /> */}
+                <Toaster position='top-right' />
             </div>
             <div>
                 <form onSubmit={submitHandler}>

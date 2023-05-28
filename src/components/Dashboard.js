@@ -53,12 +53,12 @@ const Dashboard = () => {
 
                     </div>
                     <div className="child col" style={{ background: "orange" }}>
-                        <h3 className="h3" id="cd5">{data.employeeCount}</h3>
+                        {/* <h3 className="h3" id="cd5">{data.employeeCount}</h3> */}
                         <h4>Electricity Transaction</h4>
                         <Link to="/addelectricitytransaction"><button className='child-card-button'>Add Transaction</button></Link>
                     </div>
                     <div className="child col" style={{ background: "orange" }}>
-                        <h3 className="h3" id="cd5">{data.employeeCount}</h3>
+                        {/* <h3 className="h3" id="cd5">{data.employeeCount}</h3> */}
                         <h4>Water Transaction</h4>
                         <Link to="/addwatertransaction"><button className='child-card-button'>Add Transaction</button></Link>
                     </div>

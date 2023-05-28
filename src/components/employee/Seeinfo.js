@@ -12,6 +12,8 @@ const Seeinfo = () => {
   const [waterData, setwaterData] = useState([]);
   const [electricityData, setElectricity] = useState([]);
   const [houseNo,setHouseNo]=useState('')
+
+
   const getHomeValues = async () => {
     await axios.get(`${api}/employee/get/home/${houseNo}`).then((res) => {
       sethomeData(res.data)
