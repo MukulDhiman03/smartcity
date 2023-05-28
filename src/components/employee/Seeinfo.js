@@ -16,7 +16,7 @@ const Seeinfo = () => {
     var houseNo = "mukul101";
     await axios.get(`${api}/employee/get/home/${houseNo}`).then((res) => {
       sethomeData(res.data)
-      // console.log(res.data)
+      console.log(res.data)
     })
   }
 
@@ -46,15 +46,15 @@ const Seeinfo = () => {
 
   return (
     <div id='info_container'>
-      <h2><span>Welcome,</span> Mukul Dhiman</h2>
+      <h1>Welcome , {homeData.ownerName}</h1>
       <div id="info_topbar">
         <div className='info'>
-          <p>Mukuldhiman@gmail.com</p>
-          <p>9917079890</p>
+          <p>{homeData.ownerEmail}</p>
+          <p>{homeData.ownerPhone}</p>
         </div>
         <div className='info'>
-          <p>AIZP46849D</p>
-          <p>krishna nagar lane no 4, Roorkee</p>
+          <p>{homeData.society?homeData.society.city:""}</p>
+          <p>{homeData.society?homeData.society.street:""}</p>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ const Seeinfo = () => {
                 <div className="card-body">
                   <h5 className="card-title">Home</h5>
                   <p className="card-text">Owner Name - {homeData.ownerName}</p>
-                  <p className="card-text">Owner Email - {homeData.ownerEmail}</p>
+                  {/* <p className="card-text">Owner Email - {homeData.ownerEmail}</p> */}
                   {/* <p className="card-text">Society Name -{homeData.society.societyName} </p> */}
                   <p className="card-text">House No -{homeData.houseNo}</p>
                   <p className="card-text">Owner Contact -{homeData.ownerPhone} </p>

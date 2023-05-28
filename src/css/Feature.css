@@ -1,7 +1,6 @@
 .FeatureContainer {
     margin-top: 8%;
     /* background-color:yellow; */
-
 }
 
 /* ==========================Section two======================================== */
@@ -16,9 +15,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
     gap: 5%;
-
     background-image: linear-gradient(145deg, rgb(255, 255, 255) 30%, rgb(174, 234, 253));
     margin-bottom: 5%;
 }
@@ -79,8 +76,8 @@
 }
 
 #three {
-    background-color: black;
-    color: white;
+    background-color: rgb(253, 244, 253);
+    /* color: white; */
 }
 
 .two-img:hover {

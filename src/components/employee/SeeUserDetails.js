@@ -128,8 +128,8 @@ const SeeUserDetails = () => {
             <p>{houseDetail.ownerPhone}</p>
           </div>
           <div className='info'>
-            <p>{houseDetail.society?houseDetail.society.street:""}</p>
-            {/* <p>{houseDetail.society.societyName}</p> */}
+            <p>{houseDetail.society ? houseDetail.society.city : ""}</p>
+            <p>{houseDetail.society ? houseDetail.society.street : ""}</p>
           </div>
         </div>
 

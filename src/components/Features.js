@@ -31,10 +31,9 @@ const Features = () => {
                         <img src="revise.png" alt="" srcSet="" />
                     </div>
                     <div>
-                        <h1>Practise and revise</h1>
+                        <h1>Anytime access to the services.</h1>
                         <p>
-                            Learning isn't just limited to classes with our practice section, mock
-                            tests and lecture notes shared as PDFs for your revision
+                            All the servies are accessible anytime and from anywhere.
                         </p>
                     </div>
                 </div>
