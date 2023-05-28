@@ -3,6 +3,10 @@ import HomeDetails from './HomeDetails'
 // import SocietyDetails from "./SocietyDetails"
 import ElectricityDetails from "./ElectricityDetails"
 import WaterDetails from "./WaterDetails"
+import AddWaterTransaction from '../AddWaterTransaction'
+import AddElectricityTransaction from '../AddElectricityTransaction'
+
+
 
 const DisplayData = (props) => {
 
@@ -24,6 +28,16 @@ const DisplayData = (props) => {
     if (props.state === "4") {
         return (
             <WaterDetails />
+        )
+    }
+    if (props.state === "5") {
+        return (
+            <AddWaterTransaction />
+        )
+    }
+    if (props.state === "6") {
+        return (
+            <AddElectricityTransaction />
         )
     }
     else {

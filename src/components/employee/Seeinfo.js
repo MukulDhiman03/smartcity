@@ -3,35 +3,50 @@ import React, { useEffect, useState } from 'react'
 import "../../css/Seeinfo.css"
 import axios from 'axios'
 import api from '../../api'
+import { Link } from 'react-router-dom'
 
 
 const Seeinfo = () => {
 
   const [homeData, sethomeData] = useState([]);
-  // const [waterData, setwaterData] = useState([]);
+  const [waterData, setwaterData] = useState([]);
+  const [electricityData, setElectricity] = useState([]);
 
   const getHomeValues = async () => {
-    await axios.get(`${api}/employee/get/homes/`).then((res) =>
-      sethomeData(res.data[0]))
+    var houseNo = "mukul101";
+    await axios.get(`${api}/employee/get/home/${houseNo}`).then((res) => {
+      sethomeData(res.data)
+      // console.log(res.data)
+    })
   }
 
-  // const getWaterValues = async () => {
-  //   await axios.get(`${api}/employee/get/details/water`).then((res) => {
-  //     console.log(res);
-  //   })
-  // }
+  const getWaterValues = async () => {
+    var houseNo = "mukul101";
+    await axios.get(`${api}/employee/get/details/water/${houseNo}`).then((res) => {
+      // console.log(res.data);
+      setwaterData(res.data);
+    })
+  }
+
+  const getElectricityValues = async () => {
+    var houseNo = "mukul101";
+    await axios.get(`${api}/employee/get/details/electricity/${houseNo}`).then((res) => {
+      console.log(res.data);
+      setElectricity(res.data);
+    })
+  }
 
 
   useEffect(() => {
     getHomeValues();
-    // getWaterValues();
+    getWaterValues();
+    getElectricityValues();
   }, [])
 
 
   return (
     <div id='info_container'>
       <h2><span>Welcome,</span> Mukul Dhiman</h2>
-      <p>Berojgaar</p>
       <div id="info_topbar">
         <div className='info'>
           <p>Mukuldhiman@gmail.com</p>
@@ -52,14 +67,14 @@ const Seeinfo = () => {
                   <h5 className="card-title">Home</h5>
                   <p className="card-text">Owner Name - {homeData.ownerName}</p>
                   <p className="card-text">Owner Email - {homeData.ownerEmail}</p>
-                  {/* <p className="card-text">Society Name - {homeData.society.societyName}</p> */}
-                  <p className="card-text">House No - {homeData.houseNo}</p>
-                  <p className="card-text">Owner Contact - {homeData.ownerPhone}</p>
-                  <p className="card-text">Number of house members - {homeData.numOfHouseMembers}</p>
-                  <p className="card-text">Number of rooms - {homeData.numOfRooms}</p>
-                  <p className="card-text">Area of house - {homeData.areaOfHouse}</p>
-                  <p className="card-text">No of rooms on rent - {homeData.numOfRoomsOnRent}</p>
-                  <p className="card-text">No of vehicles - {homeData.numOfVehicles}</p>
+                  {/* <p className="card-text">Society Name -{homeData.society.societyName} </p> */}
+                  <p className="card-text">House No -{homeData.houseNo}</p>
+                  <p className="card-text">Owner Contact -{homeData.ownerPhone} </p>
+                  <p className="card-text">Number of house members -{homeData.numOfHouseMembers} </p>
+                  <p className="card-text">Number of rooms -{homeData.numOfRooms} </p>
+                  <p className="card-text">Area of house -{homeData.areaOfHouse} square feet </p>
+                  <p className="card-text">No of rooms on rent -{homeData.numOfRoomsOnRent}</p>
+                  <p className="card-text">No of vehicles -{homeData.numOfVehicles} </p>
                 </div>
               </div>
             </div>
@@ -69,8 +84,13 @@ const Seeinfo = () => {
                   <div className="card"  >
                     <div className="card-body">
                       <h5 className="card-title">Electricity</h5>
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/" className="btn btn-dark">Read More...</a>
+                      <p className="card-text">Meter No -{electricityData.meterNumber}</p>
+                      <p className="card-text">Meter Power - {electricityData.meterPower}</p>
+                      <p className="card-text">Holder Name - {electricityData.accountHolderName}</p>
+                      <p className="card-text">Phone Number - {electricityData.accountHolderPhoneNumber}</p>
+                      <p className="card-text">Corporation Name - {electricityData.powerCorporationName}</p>
+                      <p className="card-text">House No - {electricityData.houseNo}</p>
+                      <Link className="btn btn-primary btn-lg ms-2" to="/showelectricitytransaction" >See Transactions..</Link>
                     </div>
                   </div>
                 </div>
@@ -78,8 +98,13 @@ const Seeinfo = () => {
                   <div className="card"  >
                     <div className="card-body">
                       <h5 className="card-title">Water</h5>
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/" className="btn btn-dark">Read More...</a>
+                      <p className="card-text">Bill Number -{waterData.billNumber} </p>
+                      <p className="card-text">Water usage amount- {waterData.watersageAmount}</p>
+                      <p className="card-text">Water source- {waterData.waterSource}</p>
+                      <p className="card-text">Fixed Bill-{waterData.fixedBill}</p>
+                      <p className="card-text">Bill owner name- {waterData.billOwnerName}</p>
+                      <p className="card-text">House No-{waterData.houseNo}</p>
+                      <Link className="btn btn-primary btn-lg ms-2" to="/showwatertransaction">See Transactions..</Link>
                     </div>
                   </div>
                 </div>

@@ -1,11 +1,8 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import axios from "axios";
+import api from '../../../api';
 
 const ElectricityDetails = () => {
-
-
-
-
 
   const [meterno, setmeterno] = useState("");
   const [meterpower, setmeterpower] = useState("");
@@ -30,17 +27,7 @@ const ElectricityDetails = () => {
     return bool;
   }
 
-  const setValues = (obj) => {
-    obj = {
-      meterNumber: meterno,
-      meterPower: meterpower,
-      accountHolderName: holdername,
-      accountHolderPhoneNumber: phonenumber,
-      powerCorporationName: corporation,
-      houseNo: houseno,
-    }
-    return obj;
-  }
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -52,35 +39,47 @@ const ElectricityDetails = () => {
       console.log("Submitted");
     }
 
-    var electricityDetailsObj = setValues(electricityDetailsObj);
+    var electricityDetailsObj = {
+      meterNumber: meterno,
+      meterPower: meterpower,
+      accountHolderName: holdername,
+      accountHolderPhoneNumber: phonenumber,
+      powerCorporationName: corporation,
+      houseNo: houseno,
+    };
 
-    // console.log("hello" + electricityDetailsObj.accountHolderName);
+    axios.post(`${api}/employee/add/details/electricity`, electricityDetailsObj).then((res) => {
+      alert("Added");
+    }).catch((err) => {
+      alert(err);
+    })
+
   }
 
 
   const onMeterNoChange = (e) => {
     setmeterno(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   const onMeterPowerChange = (e) => {
     setmeterpower(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   const onHolderNameChange = (e) => {
     setholdername(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   const onPhoneNumberChange = (e) => {
     setPhoneNumber(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   const onCorporationChange = (e) => {
     setCorporation(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   const onHouseNoChange = (e) => {
@@ -147,8 +146,8 @@ const ElectricityDetails = () => {
                 </div>
               </div>
 
-              <div class="d-flex justify-content-center pt-3">
-                <button type="submit" class="btn btn-dark btn-lg ms-2" >Submit form</button>
+              <div className="d-flex justify-content-center pt-3">
+                <button type="submit" className="btn btn-dark btn-lg ms-2" onSubmit={submitHandler}>Submit form</button>
               </div>
 
             </div>

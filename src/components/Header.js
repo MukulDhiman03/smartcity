@@ -69,6 +69,12 @@ const Header = () => {
                             backgroundColor: "white", color: "black"
                         } : {})} to="/logout">Logout</NavLink>
                     </li>
+
+                    {/* <li>
+                        <NavLink className="links" style={({ isActive }) => (isActive ? {
+                            backgroundColor: "white", color: "black"
+                        } : {})} to="/addtransaction">AddTransaction</NavLink>
+                    </li> */}
                 </ul>
             </nav>
         </div>

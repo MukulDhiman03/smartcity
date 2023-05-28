@@ -20,7 +20,7 @@ const HomeDetails = () => {
 
   const [contacterror, setContactError] = useState(null);
   const [ownererror, setOwnerError] = useState(null);
-  
+
   const nameRegex = /^[a-zA-Z]{05,25}$/;
   const contactRegex = /^\d{10}$/;
 
@@ -45,22 +45,22 @@ const HomeDetails = () => {
   }
 
 
-  const sendEmail = async(password) => {
+  const sendEmail = async (password) => {
     const templateParams = {
       to_email: email,
       from_name: 'Smartcity Application',
-      to_name:ownername,
-      password:password,
+      to_name: ownername,
+      password: password,
       message: 'This is a mendatory step otherwise you will loose your account',
       // Add more template parameters as needed
     };
 
     await emailjs.send(process.env.REACT_APP_YOUR_SERVICE_ID, process.env.REACT_APP_YOUR_TEMPLATE_ID, templateParams, process.env.REACT_APP_YOUR_USER_ID)
-    .then((result) => {
-      toast.success('Email is sent to user');
-    }, (error) => {
-      toast.error('Oops... ' + JSON.stringify(error));
-    });
+      .then((result) => {
+        toast.success('Email is sent to user');
+      }, (error) => {
+        toast.error('Oops... ' + JSON.stringify(error));
+      });
   };
 
   const submitHandler = async (e) => {
@@ -83,11 +83,11 @@ const HomeDetails = () => {
       society: society,
       numOfVehicles: noOfVehicles
     }
-    var password=""
+    var password = ""
     await axios.post(`${api}/employee/add/home`, homeDetailsObj).then((res) => {
-        password=res.data.password
-        sendEmail(password);
-        toast.success("User is added successfully")
+      password = res.data.password
+      sendEmail(password);
+      toast.success("User is added successfully")
     }).catch((err) => {
       toast.error("Something went wrong")
       console.log(err);
@@ -249,9 +249,9 @@ const HomeDetails = () => {
                 <div className="form-outline mb-4">
                   <label htmlFor="society">Society:</label>
                   <select name="society" id="society" onChange={onSocetyChange}>
-                    {allsocieties.map((item,index)=>(                    
+                    {allsocieties.map((item, index) => (
                       <option key={index} value={item._id}>{item.societyName}</option>
-                    ))}                   
+                    ))}
                   </select>
                 </div>
               </div>

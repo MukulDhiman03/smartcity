@@ -15,6 +15,10 @@ import Profile from "./components/employee/Profile";
 import Dashboard from './components/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
+import AddWaterTransaction from "./components/employee/AddWaterTransaction"
+import ElectricityTransaction from './components/employee/ElectricityTransaction';
+import WaterTransaction from './components/employee/WaterTransaction';
+// import "./App.css"
 
 
 
@@ -35,6 +39,9 @@ const App = () => {
         <Route path='/profile' element={<Profile />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/showelectricitytransaction' element={<ElectricityTransaction />} />
+        <Route path='/showwatertransaction' element={<WaterTransaction />} />
+        <Route path='/addwatertransaction' element={<AddWaterTransaction />} />
       </Routes>
     </BrowserRouter>
   )

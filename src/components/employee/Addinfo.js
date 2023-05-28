@@ -39,6 +39,12 @@ const Addinfo = () => {
             <div className='row'>
               <center><h3 onClick={() => stateHandler("4")}> <FaHandHoldingWater />&nbsp; &nbsp; &nbsp; Water Details</h3></center>
             </div>
+            <div className='row'>
+              <center><h3 onClick={() => stateHandler("5")}>&nbsp; &nbsp; &nbsp; Add Water Transaction</h3></center>
+            </div>
+            <div className='row'>
+              <center><h3 onClick={() => stateHandler("6")}>&nbsp; &nbsp; &nbsp; Add Electricity Transaction</h3></center>
+            </div>
           </div>
           <div className='col-8' id="right">
             <DisplayData state={state} />

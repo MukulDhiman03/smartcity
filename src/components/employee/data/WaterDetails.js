@@ -26,10 +26,16 @@ const WaterDetails = () => {
       houseNo: houseno,
     }
 
-    axios.post(`${api}/employee/add/details/water`, waterDetailsObj);
+    axios.post(`${api}/employee/add/details/water`, waterDetailsObj).then((res) => {
+      console.log(res)
+      alert("Added")
+    }).catch((err) => {
+      console.log(err);
+      alert("Not Added")
+    })
   }
 
-  
+
 
 
   const onBillNumberChange = (e) => {
@@ -132,7 +138,7 @@ const WaterDetails = () => {
 
 
               <div class="d-flex justify-content-center pt-3">
-                <button type="submit" class="btn btn-dark btn-lg ms-2" >Submit form</button>
+                <button type="submit" class="btn btn-dark btn-lg ms-2" onSubmit={submitHandler}>Submit form</button>
               </div>
 
             </div>

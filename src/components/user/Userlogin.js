@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import api from '../../api';
 
 
 
@@ -12,11 +13,30 @@ import axios from 'axios';
 
 const Userlogin = () => {
 
-
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
+    function handleClose() {
+        setShow(false);
+        changePassword();
+    }
+
+    const changePassword = async () => {
+        const changePasswordObj = {
+            ownerEmail: email,
+            oldPassword: password,
+            newPassword: newPassword
+        }
+        await axios.post(`${api}/auth/user/change_password`, changePasswordObj).then((res) => {
+            if (res.status === 200) {
+                window.alert("You have successfully changed the password");
+            }
+        }).catch((err) => {
+            window.alert(err)
+            console.log(err);
+        })
+    }
 
     const [email, setEmail] = useState("");
     const onEmailChange = (e) => {
@@ -29,6 +49,13 @@ const Userlogin = () => {
     }
 
 
+
+    const [newPassword, setNewPassword] = useState("");
+    const onSetPasswordChange = (e) => {
+        setNewPassword(e.target.value);
+    }
+
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -37,13 +64,15 @@ const Userlogin = () => {
             password: password,
         }
 
-        await axios.post('https://bright-calf-miniskirt.cyclic.app/auth/user/login/', userLoginObj).then((res) => {
+        axios.post(`${api}/auth/user/login`, userLoginObj).then((res) => {
             if (res.status === 200) {
-                alert("You have successfully loged in");
+                window.alert("You have successfully loged in");
             }
         }).catch((err) => {
             console.log(err);
         })
+
+
     }
 
 
@@ -68,7 +97,7 @@ const Userlogin = () => {
 
                             {/* email */}
                             <div className="form-outline mb-4">
-                                <label className="form-label">House no</label>
+                                <label className="form-label">Email</label>
                                 <input type="email" name="email" value={email}
                                     onChange={onEmailChange} className="form-control form-control-lg"
                                     placeholder="Enter a valid email id" />
@@ -89,18 +118,18 @@ const Userlogin = () => {
 
                             {/* register */}
                             <div className="text-center text-lg-start mt-4 pt-2">
-                                <button type='submit' className="btn btn-dark btn-lg">Login</button>
+                                <button type='submit' onSubmit={submitHandler} className="btn btn-dark btn-lg">Login</button>
                             </div>
 
 
                             {/* forgot your password */}
-                            <Button variant="primary" onClick={handleShow}>
-                                Launch demo modal
+                            <Button className="btn btn-dark mt-2" variant=" primary" onClick={handleShow}>
+                                Change Password
                             </Button>
 
                             <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Modal heading</Modal.Title>
+                                    <Modal.Title>Change Your Password</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                     <Form>
@@ -108,23 +137,39 @@ const Userlogin = () => {
                                             <Form.Label>Email address</Form.Label>
                                             <Form.Control
                                                 type="email"
-                                                placeholder="name@example.com"
+                                                placeholder="Enter Email Id"
                                                 autoFocus
+                                                onChange={onEmailChange}
                                             />
                                         </Form.Group>
                                         <Form.Group
                                             className="mb-3"
                                             controlId="exampleForm.ControlTextarea1"
                                         >
-                                            <Form.Label>Example textarea</Form.Label>
-                                            <Form.Control as="textarea" rows={3} />
+                                            <Form.Control
+                                                type="password"
+                                                placeholder="Enter your old password"
+                                                autoFocus
+                                                onChange={onPasswordChange}
+                                            />
+                                        </Form.Group>
+                                        <Form.Group
+                                            className="mb-3"
+                                            controlId="exampleForm.ControlTextarea1"
+                                        >
+                                            <Form.Control
+                                                type="password"
+                                                placeholder="Enter your new password"
+                                                autoFocus
+                                                onChange={onSetPasswordChange}
+                                            />
                                         </Form.Group>
                                     </Form>
                                 </Modal.Body>
                                 <Modal.Footer>
-                                    <Button variant="secondary" onClick={handleClose}>
+                                    {/* <Button variant="secondary" onClick={handleClose}>
                                         Close
-                                    </Button>
+                                    </Button> */}
                                     <Button variant="primary" onClick={handleClose}>
                                         Save Changes
                                     </Button>
