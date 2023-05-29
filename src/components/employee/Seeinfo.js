@@ -23,7 +23,7 @@ const Seeinfo = () => {
   
   const getWaterValues = async () => {
     await axios.get(`${api}/employee/get/details/water/${houseNo}`).then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
       setwaterData(res.data);
     })
   }

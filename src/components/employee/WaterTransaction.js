@@ -29,7 +29,6 @@ const WaterTransaction = () => {
             })
         }
     }, [houseNo])
-    //    style={{ width: " 18rem", margin: "2px" }}
 
     return (
         <div className='container'>
